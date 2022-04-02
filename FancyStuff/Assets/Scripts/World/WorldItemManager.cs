@@ -48,10 +48,21 @@ namespace World
             }
             else
             {
-                var worldItem = worldItemCreator.Create(id, itemType);
-                worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
+                AddToWorldItems(id, itemType);
             }
 
+        }
+
+        public WorldItem AddToWorldItems(ItemType itemType)
+        {
+            return AddToWorldItems(maximumId + 1, itemType);
+        }
+
+        private WorldItem AddToWorldItems(int id, ItemType itemType)
+        {
+            var worldItem = worldItemCreator.Create(id, itemType);
+            worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
+            return worldItem.MapTo();
         }
     }
 }

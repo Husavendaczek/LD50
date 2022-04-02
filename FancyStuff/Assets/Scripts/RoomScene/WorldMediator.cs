@@ -1,4 +1,5 @@
 using Helper;
+using Interaction;
 using Inventory;
 using ItemProperty;
 using UnityEngine;
@@ -12,14 +13,18 @@ namespace RoomScene
         private InventoryKeyManager _inventoryKeyManager;
         private WorldItemManager _worldItemManager;
         private WorldItemsOfSceneLoader _worldItemsOfSceneLoader;
+        private InteractionManager _interactionManager;
+        private ItemIcons _itemIcons;
 
         private void Awake()
         {
+            _itemIcons = FindObjectOfType<ItemIcons>();
+            
             _inventoryManager = FindObjectOfType<InventoryManager>();
             _inventoryManager.mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = FindObjectOfType<InventoryCreator>();
-            _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();
+            _inventoryManager.inventoryCreator.ItemIcons = _itemIcons;
 
             _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
             _inventoryKeyManager.Mediator = this;
@@ -31,10 +36,20 @@ namespace RoomScene
             _worldItemManager = FindObjectOfType<WorldItemManager>();
             _worldItemManager.worldMediator = this;
             _worldItemManager.worldItemCreator = FindObjectOfType<WorldItemCreator>();
-            _worldItemManager.worldItemCreator.itemIcons = FindObjectOfType<ItemIcons>();
+            _worldItemManager.worldItemCreator.itemIcons = _itemIcons;
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
+
+            _interactionManager = FindObjectOfType<InteractionManager>();
+            _interactionManager.Mediator = this;
+            _interactionManager.itemIcons = _itemIcons;
             
             SetBackground();
+        }
+
+        public void CreateItemInWorld(ItemType itemType)
+        {
+            var item = _worldItemManager.AddToWorldItems(itemType);
+            _inventoryManager.Collect(item);
         }
 
         public void CollectItem(WorldItemMono worldItemMono)
@@ -60,9 +75,14 @@ namespace RoomScene
             _inventoryKeyManager.ShowInventory(false);
         }
 
+        public InventoryItem FirstInventoryItem(ItemType itemType)
+        {
+            return _inventoryManager.FirstItem(itemType);
+        }
+
         public void StartInteraction(ItemType itemType)
         {
-            throw new System.NotImplementedException();
+            _interactionManager.Interact(itemType);
         }
 
         public void PauseMovement(bool pause)

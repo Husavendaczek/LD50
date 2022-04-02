@@ -18,6 +18,11 @@ namespace RoomScene
             _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();
         }
 
+        public void CreateItemInWorld(ItemType itemType)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void CollectItem(WorldItemMono worldItemMono)
         {
             throw new System.NotImplementedException();
@@ -34,6 +39,11 @@ namespace RoomScene
         }
 
         public void RemoveAndHideInventory(InventoryItem item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public InventoryItem FirstInventoryItem(ItemType itemType)
         {
             throw new System.NotImplementedException();
         }

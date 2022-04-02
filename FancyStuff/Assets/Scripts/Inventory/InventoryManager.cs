@@ -55,5 +55,10 @@ namespace Inventory
             
             inventoryStore.RemoveFromInventory(inventorySlotItem.ID);
         }
+
+        public InventoryItem FirstItem(ItemType itemType)
+        {
+            return inventoryStore.FirstItem(itemType);
+        }
     }
 }
