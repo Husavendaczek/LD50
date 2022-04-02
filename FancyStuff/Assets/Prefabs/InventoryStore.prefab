@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItemSlotPrefab: {fileID: 9203842053748129088, guid: 5bf86baed01156942afc4b2e2abdf29e, type: 3}
-  ItemIcons: {fileID: 8010297289842226867}
+  ItemIcons: {fileID: 0}
 --- !u!114 &8010297289842226867
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -694,3 +694,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 0
   amountText: {fileID: 8634301491208846505}
+  icon: {fileID: 4316097984188545914}

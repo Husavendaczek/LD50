@@ -7,7 +7,7 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-        public IMediator mediator;
+        public IMediator Mediator;
         public InventoryStore inventoryStore;
         public InventoryCreator inventoryCreator;
 
@@ -21,9 +21,9 @@ namespace Inventory
             }
             else
             {
-                var inventoryItemSlot = inventoryCreator.Create(worldItem, transform);
+                var inventoryItemSlot = inventoryCreator.Create(worldItem, this.transform);
                 inventoryItemSlot.remove = () => MoveItemFromInventoryToWorld(worldItem.MapTo());
-                inventoryItemSlot.interact = () => mediator.StartInteraction(worldItem.ItemType);
+                inventoryItemSlot.interact = () => Mediator.StartInteraction(worldItem.ItemType);
                 
                 inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
             }
@@ -31,7 +31,7 @@ namespace Inventory
 
         public void MoveItemFromInventoryToWorld(InventoryItem inventoryItem)
         {
-            mediator.DropItemBackToWorld(inventoryItem.ID, inventoryItem.ItemType);
+            Mediator.DropItemBackToWorld(inventoryItem.ID, inventoryItem.ItemType);
 
             var inventorySlotItem = inventoryStore.GetStoredInventorySlotById(inventoryItem.ID);
 

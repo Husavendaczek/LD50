@@ -12,7 +12,7 @@ namespace RoomScene
         private void Awake()
         {
             _inventoryManager = FindObjectOfType<InventoryManager>();
-            _inventoryManager.mediator = this;
+            _inventoryManager.Mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = FindObjectOfType<InventoryCreator>();
             _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();

@@ -11,9 +11,11 @@ namespace RoomScene
 {
     public class WorldMediator : MonoBehaviour, IMediator
     {
+        private InventoryCreator _inventoryCreator;
         private InventoryManager _inventoryManager;
         private InventoryKeyManager _inventoryKeyManager;
-        
+
+        private WorldItemCreator _worldItemCreator;
         private WorldItemManager _worldItemManager;
         private WorldItemsOfSceneLoader _worldItemsOfSceneLoader;
         
@@ -27,21 +29,25 @@ namespace RoomScene
         {
             _itemIcons = FindObjectOfType<ItemIcons>();
             
+            _inventoryCreator = FindObjectOfType<InventoryCreator>();
+            _inventoryCreator.ItemIcons = _itemIcons;
+            
             _inventoryManager = FindObjectOfType<InventoryManager>();
-            _inventoryManager.mediator = this;
+            _inventoryManager.Mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
-            _inventoryManager.inventoryCreator = FindObjectOfType<InventoryCreator>();
-            _inventoryManager.inventoryCreator.ItemIcons = _itemIcons;
+            _inventoryManager.inventoryCreator = _inventoryCreator;
 
             _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
             _inventoryKeyManager.Mediator = this;
             _inventoryKeyManager.inventoryCanvas = GameObject.FindWithTag("InventoryPanel");
 
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
+
+            _worldItemCreator = FindObjectOfType<WorldItemCreator>();
+            _worldItemCreator.itemIcons = _itemIcons;
             
             _worldItemManager = FindObjectOfType<WorldItemManager>();
-            _worldItemManager.worldItemCreator = FindObjectOfType<WorldItemCreator>();
-            _worldItemManager.worldItemCreator.itemIcons = _itemIcons;
+            _worldItemManager.worldItemCreator = _worldItemCreator;
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
 
             _interactionManager = FindObjectOfType<InteractionManager>();
