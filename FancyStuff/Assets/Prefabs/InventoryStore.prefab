@@ -73,4 +73,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823fd7368f4a46c8a8707b6c410c5bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons: []
+  icons:
+  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
