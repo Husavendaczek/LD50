@@ -35,10 +35,26 @@ namespace World
             return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
         }
 
-        public void SetWorldItemToCollected(int id)
+        public bool ExistsInSceneRooms(int id)
+        {
+            var exists = false;
+            var allScenes = _worldItemStore.AllSceneRooms();
+            foreach (var tmp in allScenes.Select(sceneRoom => sceneRoom.WorldItems.Where(worldItem => worldItem.Id == id).ToList()))
+            {
+                exists = tmp.Any();
+            }
+            return exists;
+        }
+
+        public void SetWorldItemCollected(int id, bool collected)
         {
             var worldItem = _currentScene.WorldItems.Find(worldItem => worldItem.Id == id);
-            worldItem.Collected = false;
+            worldItem.Collected = collected;
+        }
+
+        public void AddToSceneRoom(WorldItem worldItem)
+        {
+            _currentScene.WorldItems.Add(worldItem);
         }
 
         public void SetBackgroundOfScene()

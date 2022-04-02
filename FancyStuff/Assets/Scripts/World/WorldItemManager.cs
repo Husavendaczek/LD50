@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Helper;
+using Inventory;
 using RoomScene;
 using UnityEngine;
 
@@ -29,14 +30,28 @@ namespace World
             }
         }
 
-        public void SetCollected(WorldItemMono worldItem)
+        public void CollectFromWorld(WorldItemMono worldItem)
         {
             if (!_currentViewableWorldItems.Any()) return;
             
-            worldItemsOfSceneLoader.SetWorldItemToCollected(worldItem.id);
+            worldItemsOfSceneLoader.SetWorldItemCollected(worldItem.id, true);
             
             _currentViewableWorldItems.Remove(worldItem);
             Destroy(worldItem.gameObject);
+        }
+
+        public void DropIntoWorld(int id, ItemType itemType)
+        {
+            if (worldItemsOfSceneLoader.ExistsInSceneRooms(id))
+            {
+                worldItemsOfSceneLoader.SetWorldItemCollected(id, false);
+            }
+            else
+            {
+                var worldItem = worldItemCreator.Create(id, itemType);
+                worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
+            }
+
         }
     }
 }

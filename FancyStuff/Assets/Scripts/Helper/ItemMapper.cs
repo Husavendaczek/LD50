@@ -29,7 +29,8 @@ namespace Helper
             {
                 Id = worldItemMono.id,
                 ItemType = worldItemMono.itemType,
-                Position = worldItemMono.position
+                Position = worldItemMono.position,
+                Collected = false
             };
         }
     }

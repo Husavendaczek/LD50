@@ -40,12 +40,13 @@ namespace RoomScene
         public void CollectItem(WorldItemMono worldItemMono)
         {
             _inventoryManager.Collect(worldItemMono.MapTo());
-            _worldItemManager.SetCollected(worldItemMono);
+            _worldItemManager.CollectFromWorld(worldItemMono);
         }
 
         public void DropItemBackToWorld(int id, ItemType itemType)
         {
-            throw new System.NotImplementedException();
+            _worldItemManager.DropIntoWorld(id, itemType);
+            _inventoryKeyManager.ShowInventory(false);
         }
 
         public void RemoveItemFromInventory(ItemType itemType)
@@ -55,7 +56,8 @@ namespace RoomScene
 
         public void RemoveAndHideInventory(InventoryItem item)
         {
-            throw new System.NotImplementedException();
+            _inventoryManager.MoveItemFromInventoryToWorld(item);
+            _inventoryKeyManager.ShowInventory(false);
         }
 
         public void StartInteraction(ItemType itemType)
@@ -75,7 +77,7 @@ namespace RoomScene
 
         public void SetBackground()
         {
-            
+            _worldItemsOfSceneLoader.SetBackgroundOfScene();
         }
     }
 }

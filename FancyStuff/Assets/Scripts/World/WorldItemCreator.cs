@@ -1,3 +1,5 @@
+using Helper;
+using Inventory;
 using ItemProperty;
 using UnityEngine;
 
@@ -22,6 +24,25 @@ namespace World
             worldItemGameObject.GetComponent<WorldItemMono>().id = worldItem.Id;
             worldItemGameObject.GetComponent<WorldItemMono>().itemType = worldItem.ItemType;
             worldItemGameObject.GetComponent<WorldItemMono>().position = worldItem.Position;
+
+            return worldItemGameObject.GetComponent<WorldItemMono>();
+        }
+
+        public WorldItemMono Create(int id, ItemType itemType)
+        {
+            var position = new Vector3(0.0f, 0.1f, 0.0f);
+            
+            var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
+            worldItemGameObject.transform.position = position;
+            worldItemGameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            
+            worldItemGameObject.name = itemType + id.ToString();
+
+            worldItemGameObject.GetComponent<SpriteRenderer>().sprite = itemIcons.icons[(int) itemType];
+            
+            worldItemGameObject.GetComponent<WorldItemMono>().id = id;
+            worldItemGameObject.GetComponent<WorldItemMono>().itemType = itemType;
+            worldItemGameObject.GetComponent<WorldItemMono>().position = position;
 
             return worldItemGameObject.GetComponent<WorldItemMono>();
         }

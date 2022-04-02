@@ -58,5 +58,15 @@ namespace World
         {
             DontDestroyOnLoad(this);
         }
+
+        public List<SceneRoom> AllSceneRooms()
+        {
+            return new List<SceneRoom>
+            {
+                StartScene,
+                StevesRoom,
+                Kitchen
+            };
+        }
     }
 }
