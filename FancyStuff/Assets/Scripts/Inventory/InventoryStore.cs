@@ -26,6 +26,7 @@ namespace Inventory
             if(slotToDelete == null) return;
             
             inventoryItemSlots.Remove(slotToDelete);
+            Destroy(slotToDelete);
             
             var itemToDelete = InventoryItems.FirstOrDefault(inventoryItem => inventoryItem.ID == id);
             if(itemToDelete == null) return;
@@ -57,14 +58,7 @@ namespace Inventory
             
             return newAmount;
         }
-        
-        public bool IsInInventory(int id)
-        {
-            var inventoryItem = InventoryItems.FirstOrDefault(inventoryItem =>
-                inventoryItem.ID == id);
-            return inventoryItem != null;
-        }
-        
+
         public InventoryItem FirstItem(ItemType itemType)
         {
             var inventorySlot = inventoryItemSlots.First(inventoryPair =>

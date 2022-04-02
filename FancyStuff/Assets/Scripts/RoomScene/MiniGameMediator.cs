@@ -38,6 +38,11 @@ namespace RoomScene
             throw new System.NotImplementedException();
         }
 
+        public void StartInteraction(ItemType itemType)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void PauseMovement(bool pause)
         {
             

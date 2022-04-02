@@ -13,6 +13,8 @@ namespace RoomScene
 
         void RemoveAndHideInventory(InventoryItem item);
 
+        void StartInteraction(ItemType itemType);
+
         void PauseMovement(bool pause);
 
         void ShowInventory(bool show);

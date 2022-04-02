@@ -21,19 +21,17 @@ namespace Inventory
             }
             else
             {
-                //TODO instantiate
-                //TODO add to itemSlots
                 var inventoryItemSlot = inventoryCreator.Create(worldItem, transform);
-                inventoryItemSlot.remove = () => RemoveItem(worldItem.MapTo());
-                inventoryItemSlot.interact = () => {}; //TODO
+                inventoryItemSlot.remove = () => MoveItemFromInventoryToWorld(worldItem.MapTo());
+                inventoryItemSlot.interact = () => mediator.StartInteraction(worldItem.ItemType);
                 
                 inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
             }
         }
 
-        public void RemoveItem(InventoryItem inventoryItem)
+        public void MoveItemFromInventoryToWorld(InventoryItem inventoryItem)
         {
-            //TODO spawn in world
+            mediator.DropItemBackToWorld(inventoryItem.ID, inventoryItem.ItemType);
 
             var inventorySlotItem = inventoryStore.GetStoredInventorySlotById(inventoryItem.ID);
 
@@ -45,6 +43,17 @@ namespace Inventory
             
             inventoryStore.RemoveFromInventory(inventorySlotItem.Item.ID);
             Destroy(inventorySlotItem.gameObject);
+        }
+
+        public void RemoveLastItem(ItemType itemType)
+        {
+            var inventorySlotItem = inventoryStore.FirstItem(itemType);
+
+            var newAmount = inventoryStore.SetAmountOfItemType(itemType, -1);
+
+            if (newAmount > 0) return;
+            
+            inventoryStore.RemoveFromInventory(inventorySlotItem.ID);
         }
     }
 }

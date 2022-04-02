@@ -50,10 +50,15 @@ namespace RoomScene
 
         public void RemoveItemFromInventory(ItemType itemType)
         {
-            throw new System.NotImplementedException();
+            _inventoryManager.RemoveLastItem(itemType);
         }
 
         public void RemoveAndHideInventory(InventoryItem item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void StartInteraction(ItemType itemType)
         {
             throw new System.NotImplementedException();
         }
