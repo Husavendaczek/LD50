@@ -46,7 +46,7 @@ namespace Interaction
         {
             if (_firstSelectedGO == null)
             {
-                var myCanvas = GameObject.FindWithTag("InventoryPanel");
+                var myCanvas = FindObjectOfType<InventoryPanelManager>().gameObject;
                 _firstSelectedGO = Instantiate(hoverPrefab, myCanvas.transform, true);
                 _firstSelectedGO.transform.position = myCanvas.transform.position;
                 _firstSelectedItem = Mediator.FirstInventoryItem(itemType);

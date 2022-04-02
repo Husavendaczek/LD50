@@ -1,3 +1,4 @@
+using System;
 using Helper;
 using RoomScene;
 using UnityEngine;
@@ -10,6 +11,12 @@ namespace Inventory
         public IMediator Mediator;
         public InventoryStore inventoryStore;
         public InventoryCreator inventoryCreator;
+        public Transform inventoryCanvasTransform;
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
 
         public void Collect(WorldItem worldItem)
         {
@@ -21,7 +28,7 @@ namespace Inventory
             }
             else
             {
-                var inventoryItemSlot = inventoryCreator.Create(worldItem, this.transform);
+                var inventoryItemSlot = inventoryCreator.Create(worldItem, inventoryCanvasTransform);
                 inventoryItemSlot.remove = () => MoveItemFromInventoryToWorld(worldItem.MapTo());
                 inventoryItemSlot.interact = () => Mediator.StartInteraction(worldItem.ItemType);
                 

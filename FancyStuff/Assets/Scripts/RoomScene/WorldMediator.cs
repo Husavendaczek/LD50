@@ -36,10 +36,12 @@ namespace RoomScene
             _inventoryManager.Mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = _inventoryCreator;
+            var inventoryPanel = GameObject.FindWithTag("InventoryPanel");
+            _inventoryManager.inventoryCanvasTransform = inventoryPanel.transform;
 
             _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
             _inventoryKeyManager.Mediator = this;
-            _inventoryKeyManager.inventoryCanvas = GameObject.FindWithTag("InventoryPanel");
+            _inventoryKeyManager.inventoryCanvas = inventoryPanel;
 
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
 
@@ -68,7 +70,6 @@ namespace RoomScene
 
         public void CollectItem(WorldItemMono worldItemMono)
         {
-            Debug.Log("Collect world item with type" + worldItemMono.itemType);
             _inventoryManager.Collect(worldItemMono.MapTo());
             _worldItemManager.CollectFromWorld(worldItemMono);
             
