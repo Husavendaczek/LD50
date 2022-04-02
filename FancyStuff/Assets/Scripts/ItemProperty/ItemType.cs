@@ -6,6 +6,7 @@ namespace Inventory
         PaperTrash,
         Apple,
         Knife,
-        CatFood
+        CatFood,
+        AppleSlice
     }
 }

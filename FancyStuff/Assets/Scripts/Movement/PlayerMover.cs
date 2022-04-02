@@ -1,4 +1,5 @@
 using Helper;
+using Interaction.Doors;
 using RoomScene;
 using States;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Movement
         private Vector2 _target;
 
         private GameObject _worldItem;
+        private GameObject _door;
 
         private bool _shouldMove = true;
 
@@ -43,10 +45,18 @@ namespace Movement
                 Debug.Log("reached target");
                 Debug.Log("world item is" + _worldItem);
                 playerStateManager.Reset();
+
+                if (_door != null)
+                {
+                    var doorItem = _door.GetComponent<IDoor>();
+                    doorItem.GoTo();
+                    doorItem = null;
+                }
                 
                 if (_worldItem == null) return;
                 var item = _worldItem.GetComponent<WorldItemMono>();
                 Mediator.CollectItem(item);
+                _worldItem = null;
             }
         }
 
@@ -60,6 +70,8 @@ namespace Movement
             var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D overlapPoint = Physics2D.OverlapPoint(worldPosition);
             playerStateManager.StartWalkingAnimation();
+            
+            //TODO check for door collision
 
             if (overlapPoint != null)
             {
@@ -68,7 +80,14 @@ namespace Movement
                 _target = collidedItem.transform.position;
                 if (collidedItem.GetComponent<WorldItemMono>() != null)
                 {
+                    _door = null;
                     _worldItem = collidedItem;
+                }
+
+                if (collidedItem.GetComponent<IDoor>() != null)
+                {
+                    _worldItem = null;
+                    _door = collidedItem;
                 }
             }
             else
@@ -76,6 +95,7 @@ namespace Movement
                 //TODO clamp target
                 _target = worldPosition;
                 _worldItem = null;
+                _door = null;
             }
         }
     }

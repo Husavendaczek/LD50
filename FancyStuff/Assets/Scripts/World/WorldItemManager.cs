@@ -41,6 +41,7 @@ namespace World
 
         public void DropIntoWorld(int id, ItemType itemType)
         {
+            //TODO fix bug
             if (worldItemsOfSceneLoader.ExistsInSceneRooms(id))
             {
                 worldItemsOfSceneLoader.SetWorldItemCollected(id, false);

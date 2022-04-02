@@ -34,7 +34,14 @@ namespace World
                     Position = new Vector3(1,1,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
-                }
+                },
+                new WorldItem
+                {
+                    Id = 6,
+                    Position = new Vector3(1,1,0),
+                    ItemType = ItemType.CatFood,
+                    Collected = false
+                },
             }
         };
         
