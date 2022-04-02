@@ -50,7 +50,6 @@ namespace Inventory
             
             var currentAmount = storedInventoryItemPairForItemType.amount;
             var newAmount = currentAmount + addAmount;
-            print("set " + currentAmount + " to " + newAmount + "" + itemType);
             
             storedInventoryItemPairForItemType.amount = newAmount;
             
