@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Interaction.Doors;
 using RoomScene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,11 @@ namespace World
 
         private void Start()
         {
+            InitCurrentScene();
+        }
+
+        private void InitCurrentScene()
+        {
             var currentSceneName = SceneManager.GetActiveScene().name;
             _worldItemStore = FindObjectOfType<WorldItemStore>();
 
@@ -23,6 +29,14 @@ namespace World
             else if (currentSceneName == _worldItemStore.Kitchen.SceneName)
             {
                 _currentScene = _worldItemStore.Kitchen;
+            }
+            else if (currentSceneName == _worldItemStore.LivingRoom.SceneName)
+            {
+                _currentScene = _worldItemStore.LivingRoom;
+            }
+            else if (currentSceneName == _worldItemStore.Garden.SceneName)
+            {
+                _currentScene = _worldItemStore.Garden;
             }
             else
             {
@@ -35,6 +49,15 @@ namespace World
         public List<WorldItem> WorldItemsForCurrentScene()
         {
             return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+        }
+        
+        public IEnumerable<Door> DoorsForCurrentScene()
+        {
+            if(_currentScene != null)
+                return _currentScene.ExistingDoors;
+
+            InitCurrentScene();
+            return _currentScene.ExistingDoors;
         }
 
         public bool ExistsInSceneRooms(int id)

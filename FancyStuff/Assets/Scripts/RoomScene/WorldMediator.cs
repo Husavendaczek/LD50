@@ -1,5 +1,6 @@
 using Helper;
 using Interaction;
+using Interaction.Doors;
 using Inventory;
 using ItemProperty;
 using Movement;
@@ -18,6 +19,9 @@ namespace RoomScene
         private WorldItemCreator _worldItemCreator;
         private WorldItemManager _worldItemManager;
         private WorldItemsOfSceneLoader _worldItemsOfSceneLoader;
+
+        private DoorCreator _doorCreator;
+        private DoorManager _doorManager;
         
         private InteractionManager _interactionManager;
         private ItemIcons _itemIcons;
@@ -51,6 +55,11 @@ namespace RoomScene
             _worldItemManager = FindObjectOfType<WorldItemManager>();
             _worldItemManager.worldItemCreator = _worldItemCreator;
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
+
+            _doorCreator = FindObjectOfType<DoorCreator>();
+            _doorManager = FindObjectOfType<DoorManager>();
+            _doorManager.doorCreator = _doorCreator;
+            _doorManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
 
             _interactionManager = FindObjectOfType<InteractionManager>();
             _interactionManager.Mediator = this;

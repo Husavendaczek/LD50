@@ -173,6 +173,8 @@ GameObject:
   - component: {fileID: 762245472093325691}
   - component: {fileID: 762245472093325690}
   - component: {fileID: 762245472093325693}
+  - component: {fileID: 875652163}
+  - component: {fileID: 875652162}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -228,6 +230,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldItemPrefab: {fileID: 5347314822048936424, guid: 3e304ac11aea51a4daadb684676bd039, type: 3}
   itemIcons: {fileID: 0}
+--- !u!114 &875652163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762245472093325692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe351efc77ad4e4c9bc57ab155faea71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorPrefab: {fileID: 4205861511890759634, guid: 3bebbe69ed16bd54f8d05563cb4dd74d, type: 3}
+  doorSprite: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+--- !u!114 &875652162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762245472093325692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702df4ac83964bb28a547223ca1a8c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldItemsOfSceneLoader: {fileID: 0}
+  doorCreator: {fileID: 0}
 --- !u!1 &762245472462755637
 GameObject:
   m_ObjectHideFlags: 0
