@@ -7,28 +7,55 @@ namespace Inventory
     public class InventoryStore : MonoBehaviour
     {
         public readonly List<InventoryItem> InventoryItems = new List<InventoryItem>();
-        public List<InventoryItemSlot> inventorySlots = new List<InventoryItemSlot>();
-
-        public void AddToInventory(InventoryItem inventoryItem)
+        public List<InventoryItemSlot> inventoryItemSlots = new List<InventoryItemSlot>();
+        
+        private void Awake()
         {
-            InventoryItems.Add(inventoryItem);
+            DontDestroyOnLoad(this);
+        }
+
+        public void AddToInventoryItemSlot(InventoryItemSlot inventoryItemSlot)
+        {
+            inventoryItemSlots.Add(inventoryItemSlot);
+            InventoryItems.Add(inventoryItemSlot.Item);
         }
 
         public void RemoveFromInventory(int id)
         {
+            var slotToDelete = inventoryItemSlots.FirstOrDefault(slotItem => slotItem.Item.ID == id);
+            if(slotToDelete == null) return;
+            
+            inventoryItemSlots.Remove(slotToDelete);
+            
             var itemToDelete = InventoryItems.FirstOrDefault(inventoryItem => inventoryItem.ID == id);
             if(itemToDelete == null) return;
-            
-            //TODO remove from inventoryslots
-            
+
             InventoryItems.Remove(itemToDelete);
         }
         
-        public InventoryItemSlot GetStoredInventoryItemPairsForItemType(ItemType itemType)
+        public InventoryItemSlot GetStoredInventoryItemSlotsForItemType(ItemType itemType)
         {
-            return inventorySlots
+            return inventoryItemSlots
                 .FirstOrDefault(inventoryPair =>
                     inventoryPair.Item.ItemType == itemType);
+        }
+        
+        public int SetAmountOfItemType(ItemType itemType, int addAmount)
+        {
+            var storedInventoryItemPairForItemType = GetStoredInventoryItemSlotsForItemType(itemType);
+            if(storedInventoryItemPairForItemType == null) { 
+                return 100;
+            }
+            
+            var currentAmount = storedInventoryItemPairForItemType.amount;
+            var newAmount = currentAmount + addAmount;
+            print("set " + currentAmount + " to " + newAmount + "" + itemType);
+            
+            storedInventoryItemPairForItemType.amount = newAmount;
+            
+            storedInventoryItemPairForItemType.amountText.text = newAmount + "x " + itemType;
+            
+            return newAmount;
         }
         
         public bool IsInInventory(int id)
@@ -40,10 +67,15 @@ namespace Inventory
         
         public InventoryItem FirstItem(ItemType itemType)
         {
-            var inventorySlot = inventorySlots.First(inventoryPair =>
+            var inventorySlot = inventoryItemSlots.First(inventoryPair =>
                 inventoryPair.Item.ItemType == itemType);
             
             return inventorySlot.Item;
+        }
+
+        public InventoryItemSlot GetStoredInventorySlotById(int id)
+        {
+            return inventoryItemSlots.FirstOrDefault(inventoryItemSlot => inventoryItemSlot.Item.ID == id);
         }
     }
 }
