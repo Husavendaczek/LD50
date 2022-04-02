@@ -6,7 +6,7 @@ using World;
 
 namespace RoomScene
 {
-    public class Mediator : MonoBehaviour
+    public class WorldMediator : MonoBehaviour, IMediator
     {
         private InventoryManager _inventoryManager;
         private WorldItemManager _worldItemManager;
@@ -23,7 +23,7 @@ namespace RoomScene
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
             
             _worldItemManager = FindObjectOfType<WorldItemManager>();
-            _worldItemManager.mediator = this;
+            _worldItemManager.worldMediator = this;
             _worldItemManager.worldItemCreator = FindObjectOfType<WorldItemCreator>();
             _worldItemManager.worldItemCreator.itemIcons = FindObjectOfType<ItemIcons>();
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
@@ -33,6 +33,21 @@ namespace RoomScene
         {
             _inventoryManager.Collect(worldItemMono.MapTo());
             _worldItemManager.SetCollected(worldItemMono);
+        }
+
+        public void DropItemBackToWorld(int id, ItemType itemType)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveItemFromInventory(ItemType itemType)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveAndHideInventory(InventoryItem item)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

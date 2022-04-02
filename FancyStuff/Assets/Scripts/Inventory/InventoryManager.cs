@@ -7,7 +7,7 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-        public Mediator mediator;
+        public IMediator mediator;
         public InventoryStore inventoryStore;
         public InventoryCreator inventoryCreator;
 

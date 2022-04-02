@@ -8,7 +8,7 @@ namespace World
 {
     public class WorldItemManager : MonoBehaviour
     {
-        public Mediator mediator;
+        public WorldMediator worldMediator;
         public WorldItemCreator worldItemCreator;
         public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
 
