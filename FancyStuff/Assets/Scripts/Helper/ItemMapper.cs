@@ -22,5 +22,15 @@ namespace Helper
                 ItemType = inventoryItem.ItemType
             };
         }
+        
+        public static WorldItem MapTo(this WorldItemMono worldItemMono)
+        {
+            return new WorldItem
+            {
+                Id = worldItemMono.id,
+                ItemType = worldItemMono.itemType,
+                Position = worldItemMono.position
+            };
+        }
     }
 }

@@ -1,20 +1,22 @@
 using System.Collections.Generic;
+using System.Linq;
+using Helper;
+using RoomScene;
 using UnityEngine;
 
 namespace World
 {
     public class WorldItemManager : MonoBehaviour
     {
-        private WorldItemCreator _worldItemCreator;
+        public Mediator mediator;
+        public WorldItemCreator worldItemCreator;
+        public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
 
         private readonly List<WorldItemMono> _currentViewableWorldItems = new List<WorldItemMono>();
         private int maximumId = 0;
 
-
-
         private void Start()
         {
-            var worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
             var worldItemsForScene = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
 
             foreach (var worldItem in worldItemsForScene)
@@ -23,8 +25,18 @@ namespace World
                 {
                     maximumId = worldItem.Id;
                 }
-                _currentViewableWorldItems.Add(_worldItemCreator.Create(worldItem));
+                _currentViewableWorldItems.Add(worldItemCreator.Create(worldItem));
             }
+        }
+
+        public void SetCollected(WorldItemMono worldItem)
+        {
+            if (!_currentViewableWorldItems.Any()) return;
+            
+            worldItemsOfSceneLoader.SetWorldItemToCollected(worldItem.id);
+            
+            _currentViewableWorldItems.Remove(worldItem);
+            Destroy(worldItem.gameObject);
         }
     }
 }

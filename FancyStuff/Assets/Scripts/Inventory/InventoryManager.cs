@@ -1,4 +1,5 @@
 using Helper;
+using RoomScene;
 using UnityEngine;
 using World;
 
@@ -6,32 +7,27 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-        private InventoryStore _inventoryStore;
-        private InventoryCreator _inventoryCreator;
-
-        public void Start()
-        {
-            _inventoryStore = FindObjectOfType<InventoryStore>();
-            _inventoryCreator = FindObjectOfType<InventoryCreator>();
-        }
+        public Mediator mediator;
+        public InventoryStore inventoryStore;
+        public InventoryCreator inventoryCreator;
 
         public void Collect(WorldItem worldItem)
         {
-            var storedInventoryItemSlotsForItemType = _inventoryStore.GetStoredInventoryItemSlotsForItemType(worldItem.ItemType);
+            var storedInventoryItemSlotsForItemType = inventoryStore.GetStoredInventoryItemSlotsForItemType(worldItem.ItemType);
 
             if (storedInventoryItemSlotsForItemType != null)
             {
-                _inventoryStore.SetAmountOfItemType(worldItem.ItemType, 1);
+                inventoryStore.SetAmountOfItemType(worldItem.ItemType, 1);
             }
             else
             {
                 //TODO instantiate
                 //TODO add to itemSlots
-                var inventoryItemSlot = _inventoryCreator.Create(worldItem, transform);
+                var inventoryItemSlot = inventoryCreator.Create(worldItem, transform);
                 inventoryItemSlot.remove = () => RemoveItem(worldItem.MapTo());
                 inventoryItemSlot.interact = () => {}; //TODO
                 
-                _inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
+                inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
             }
         }
 
@@ -39,15 +35,15 @@ namespace Inventory
         {
             //TODO spawn in world
 
-            var inventorySlotItem = _inventoryStore.GetStoredInventorySlotById(inventoryItem.ID);
+            var inventorySlotItem = inventoryStore.GetStoredInventorySlotById(inventoryItem.ID);
 
             if (inventorySlotItem == null) return;
 
-            var newAmount = _inventoryStore.SetAmountOfItemType(inventorySlotItem.Item.ItemType, -1);
+            var newAmount = inventoryStore.SetAmountOfItemType(inventorySlotItem.Item.ItemType, -1);
 
             if (newAmount > 0) return;
             
-            _inventoryStore.RemoveFromInventory(inventorySlotItem.Item.ID);
+            inventoryStore.RemoveFromInventory(inventorySlotItem.Item.ID);
             Destroy(inventorySlotItem.gameObject);
         }
     }

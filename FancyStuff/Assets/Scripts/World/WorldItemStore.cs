@@ -7,6 +7,12 @@ namespace World
 {
     public class WorldItemStore : MonoBehaviour
     {
+        public SceneRoom StartScene = new SceneRoom
+        {
+            SceneName = "StartScene",
+            WorldItems = new List<WorldItem>()
+        };
+        
         public SceneRoom StevesRoom = new SceneRoom
         {
             SceneName = "StevesRoom",
@@ -43,5 +49,10 @@ namespace World
                 }
             }
         };
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 }

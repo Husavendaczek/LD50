@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using RoomScene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,21 +8,36 @@ namespace World
 {
     public class WorldItemsOfSceneLoader : MonoBehaviour
     {
-        public List<WorldItem> WorldItemsForCurrentScene()
+        private SceneRoom _currentScene;
+
+        private void Start()
         {
-            var currentScene = SceneManager.GetActiveScene().name;
+            var currentSceneName = SceneManager.GetActiveScene().name;
             var worldItemStore = FindObjectOfType<WorldItemStore>();
 
-            if (currentScene == worldItemStore.StevesRoom.SceneName)
+            if (currentSceneName == worldItemStore.StevesRoom.SceneName)
             {
-                return worldItemStore.StevesRoom.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+                _currentScene = worldItemStore.StevesRoom;
             }
-            else if (currentScene == worldItemStore.Kitchen.SceneName)
+            else if (currentSceneName == worldItemStore.Kitchen.SceneName)
             {
-                return worldItemStore.Kitchen.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+                _currentScene = worldItemStore.Kitchen;
             }
+            else
+            {
+                _currentScene = worldItemStore.StartScene;
+            }
+        }
 
-            return new List<WorldItem>();
+        public List<WorldItem> WorldItemsForCurrentScene()
+        {
+            return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+        }
+
+        public void SetWorldItemToCollected(int id)
+        {
+            var worldItem = _currentScene.WorldItems.Find(worldItem => worldItem.Id == id);
+            worldItem.Collected = false;
         }
     }
 }
