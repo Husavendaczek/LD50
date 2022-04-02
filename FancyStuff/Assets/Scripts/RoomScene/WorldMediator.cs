@@ -9,6 +9,7 @@ namespace RoomScene
     public class WorldMediator : MonoBehaviour, IMediator
     {
         private InventoryManager _inventoryManager;
+        private InventoryKeyManager _inventoryKeyManager;
         private WorldItemManager _worldItemManager;
         private WorldItemsOfSceneLoader _worldItemsOfSceneLoader;
 
@@ -19,6 +20,11 @@ namespace RoomScene
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = FindObjectOfType<InventoryCreator>();
             _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();
+
+            _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
+            _inventoryKeyManager.Mediator = this;
+            _inventoryKeyManager.inventoryCanvas = GameObject.FindWithTag("InventoryPanel");
+            _inventoryKeyManager.ShowInventory(false);
             
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
             
@@ -48,6 +54,16 @@ namespace RoomScene
         public void RemoveAndHideInventory(InventoryItem item)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void PauseMovement(bool pause)
+        {
+            Debug.Log("TODO should pause movement");
+        }
+
+        public void ShowInventory(bool show)
+        {
+            _inventoryKeyManager.ShowInventory(show);
         }
     }
 }
