@@ -1,43 +1,27 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace RoomScene
 {
-    public class SceneLoader : MonoBehaviour
+    public static class SceneLoader
     {
-        public void GoToStevesRoom()
+        public static void GoToStevesRoom()
         {
             SceneManager.LoadScene("StevesRoom");
         }
 
-        public void GoToKitchen()
+        public static void GoToKitchen()
         {
             SceneManager.LoadScene("Kitchen");
         }
         
-        public void GoToLivingRoom()
+        public static void GoToLivingRoom()
         {
             SceneManager.LoadScene("LivingRoom");
         }
         
-        public void GoToGarden()
+        public static void GoToGarden()
         {
             SceneManager.LoadScene("Garden");
-        }
-
-        public void ShowHappyEnd()
-        {
-            SceneManager.LoadScene("HappyEnd");
-        }
-        
-        public void ShowSadEnd()
-        {
-            SceneManager.LoadScene("SadEnd");
-        }
-
-        public void QuitGame()
-        {
-            Application.Quit();
         }
     }
 }
