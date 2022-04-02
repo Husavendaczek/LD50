@@ -22,7 +22,5 @@ namespace RoomScene
         void PauseMovement(bool pause);
 
         void ShowInventory(bool show);
-
-        void SetBackground();
     }
 }

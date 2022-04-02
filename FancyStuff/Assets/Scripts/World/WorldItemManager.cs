@@ -9,7 +9,6 @@ namespace World
 {
     public class WorldItemManager : MonoBehaviour
     {
-        public WorldMediator worldMediator;
         public WorldItemCreator worldItemCreator;
         public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
 

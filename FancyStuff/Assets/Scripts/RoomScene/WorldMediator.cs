@@ -2,6 +2,8 @@ using Helper;
 using Interaction;
 using Inventory;
 using ItemProperty;
+using Movement;
+using States;
 using UnityEngine;
 using World;
 
@@ -11,10 +13,15 @@ namespace RoomScene
     {
         private InventoryManager _inventoryManager;
         private InventoryKeyManager _inventoryKeyManager;
+        
         private WorldItemManager _worldItemManager;
         private WorldItemsOfSceneLoader _worldItemsOfSceneLoader;
+        
         private InteractionManager _interactionManager;
         private ItemIcons _itemIcons;
+
+        private PlayerStateManager _playerStateManager;
+        private PlayerMover _playerMover;
 
         private void Awake()
         {
@@ -34,7 +41,6 @@ namespace RoomScene
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
             
             _worldItemManager = FindObjectOfType<WorldItemManager>();
-            _worldItemManager.worldMediator = this;
             _worldItemManager.worldItemCreator = FindObjectOfType<WorldItemCreator>();
             _worldItemManager.worldItemCreator.itemIcons = _itemIcons;
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
@@ -42,8 +48,11 @@ namespace RoomScene
             _interactionManager = FindObjectOfType<InteractionManager>();
             _interactionManager.Mediator = this;
             _interactionManager.itemIcons = _itemIcons;
-            
-            SetBackground();
+
+            _playerStateManager = FindObjectOfType<PlayerStateManager>();
+            _playerMover = FindObjectOfType<PlayerMover>();
+            _playerMover.Mediator = this;
+            _playerMover.playerStateManager = _playerStateManager;
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -56,17 +65,23 @@ namespace RoomScene
         {
             _inventoryManager.Collect(worldItemMono.MapTo());
             _worldItemManager.CollectFromWorld(worldItemMono);
+            
+            // _playerStateManager.Take();
         }
 
         public void DropItemBackToWorld(int id, ItemType itemType)
         {
             _worldItemManager.DropIntoWorld(id, itemType);
             _inventoryKeyManager.ShowInventory(false);
+            
+            // _playerStateManager.Drop();
         }
 
         public void RemoveItemFromInventory(ItemType itemType)
         {
             _inventoryManager.RemoveLastItem(itemType);
+            
+            // _playerStateManager.Drop();
         }
 
         public void RemoveAndHideInventory(InventoryItem item)
@@ -83,21 +98,18 @@ namespace RoomScene
         public void StartInteraction(ItemType itemType)
         {
             _interactionManager.Interact(itemType);
+            
+            // _playerStateManager.StartInteraction();
         }
 
         public void PauseMovement(bool pause)
         {
-            Debug.Log("TODO should pause movement");
+            // _playerMover.PauseMovement(pause);
         }
 
         public void ShowInventory(bool show)
         {
             _inventoryKeyManager.ShowInventory(show);
-        }
-
-        public void SetBackground()
-        {
-            _worldItemsOfSceneLoader.SetBackgroundOfScene();
         }
     }
 }
