@@ -47,5 +47,10 @@ namespace RoomScene
         {
             
         }
+
+        public void SetBackground()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace RoomScene
     {
         public string SceneName;
         public List<WorldItem> WorldItems;
+        public int BackgroundValue;
     }
 }

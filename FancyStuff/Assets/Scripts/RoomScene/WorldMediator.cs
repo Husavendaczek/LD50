@@ -33,6 +33,8 @@ namespace RoomScene
             _worldItemManager.worldItemCreator = FindObjectOfType<WorldItemCreator>();
             _worldItemManager.worldItemCreator.itemIcons = FindObjectOfType<ItemIcons>();
             _worldItemManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
+            
+            SetBackground();
         }
 
         public void CollectItem(WorldItemMono worldItemMono)
@@ -64,6 +66,11 @@ namespace RoomScene
         public void ShowInventory(bool show)
         {
             _inventoryKeyManager.ShowInventory(show);
+        }
+
+        public void SetBackground()
+        {
+            
         }
     }
 }

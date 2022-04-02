@@ -7,15 +7,18 @@ namespace World
 {
     public class WorldItemStore : MonoBehaviour
     {
+        public Sprite[] backgrounds;
         public SceneRoom StartScene = new SceneRoom
         {
             SceneName = "StartScene",
+            BackgroundValue = 0,
             WorldItems = new List<WorldItem>()
         };
         
         public SceneRoom StevesRoom = new SceneRoom
         {
             SceneName = "StevesRoom",
+            BackgroundValue = 1,
             WorldItems = new List<WorldItem>
             {
                 new WorldItem
@@ -38,6 +41,7 @@ namespace World
         public SceneRoom Kitchen = new SceneRoom
         {
             SceneName = "Kitchen",
+            BackgroundValue = 2,
             WorldItems = new List<WorldItem>
             {
                 new WorldItem

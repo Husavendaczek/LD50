@@ -8,24 +8,25 @@ namespace World
 {
     public class WorldItemsOfSceneLoader : MonoBehaviour
     {
+        private WorldItemStore _worldItemStore;
         private SceneRoom _currentScene;
 
         private void Start()
         {
             var currentSceneName = SceneManager.GetActiveScene().name;
-            var worldItemStore = FindObjectOfType<WorldItemStore>();
+            _worldItemStore = FindObjectOfType<WorldItemStore>();
 
-            if (currentSceneName == worldItemStore.StevesRoom.SceneName)
+            if (currentSceneName == _worldItemStore.StevesRoom.SceneName)
             {
-                _currentScene = worldItemStore.StevesRoom;
+                _currentScene = _worldItemStore.StevesRoom;
             }
-            else if (currentSceneName == worldItemStore.Kitchen.SceneName)
+            else if (currentSceneName == _worldItemStore.Kitchen.SceneName)
             {
-                _currentScene = worldItemStore.Kitchen;
+                _currentScene = _worldItemStore.Kitchen;
             }
             else
             {
-                _currentScene = worldItemStore.StartScene;
+                _currentScene = _worldItemStore.StartScene;
             }
         }
 
@@ -38,6 +39,12 @@ namespace World
         {
             var worldItem = _currentScene.WorldItems.Find(worldItem => worldItem.Id == id);
             worldItem.Collected = false;
+        }
+
+        public void SetBackgroundOfScene()
+        {
+            GameObject background = GameObject.FindWithTag("Background");
+            background.GetComponent<SpriteRenderer>().sprite = _worldItemStore.backgrounds[_currentScene.BackgroundValue];
         }
     }
 }
