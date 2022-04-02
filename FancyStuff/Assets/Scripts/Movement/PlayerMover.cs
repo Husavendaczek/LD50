@@ -41,6 +41,7 @@ namespace Movement
             if (Mathf.Abs(player.transform.position.x - _target.x) <= 1f && Mathf.Abs(player.transform.position.y - _target.y) <= 1f)
             {
                 Debug.Log("reached target");
+                Debug.Log("world item is" + _worldItem);
                 playerStateManager.Reset();
                 
                 if (_worldItem == null) return;

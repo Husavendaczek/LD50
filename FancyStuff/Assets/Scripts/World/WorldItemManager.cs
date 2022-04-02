@@ -31,8 +31,10 @@ namespace World
 
         public void CollectFromWorld(WorldItemMono worldItem)
         {
+            Debug.Log("has current viewable world items " + _currentViewableWorldItems.Any());
             if (!_currentViewableWorldItems.Any()) return;
-            
+            Debug.Log("after");
+
             worldItemsOfSceneLoader.SetWorldItemCollected(worldItem.id, true);
             
             _currentViewableWorldItems.Remove(worldItem);

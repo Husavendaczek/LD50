@@ -1,3 +1,4 @@
+using System;
 using RoomScene;
 using UnityEngine;
 
@@ -10,9 +11,14 @@ namespace Inventory
 
         private bool _showInventory = false;
 
+        private void Start()
+        {
+            inventoryCanvas.SetActive(false);
+        }
+
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 ShowInventory(!_showInventory);
             }
