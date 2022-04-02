@@ -50,6 +50,45 @@ namespace World
                     Position = new Vector3(0,0,0),
                     ItemType = ItemType.CatFood,
                     Collected = false
+                },
+                new WorldItem
+                {
+                    Id = 2,
+                    Position = new Vector3(0,1,0),
+                    ItemType = ItemType.Knife,
+                    Collected = false
+                }
+            }
+        };
+        
+        public SceneRoom LivingRoom = new SceneRoom
+        {
+            SceneName = "LivingRoom",
+            BackgroundValue = 3,
+            WorldItems = new List<WorldItem>
+            {
+                new WorldItem
+                {
+                    Id = 2,
+                    Position = new Vector3(0,0,0),
+                    ItemType = ItemType.PaperTrash,
+                    Collected = false
+                }
+            }
+        };
+        
+        public SceneRoom Garden = new SceneRoom
+        {
+            SceneName = "Garden",
+            BackgroundValue = 4,
+            WorldItems = new List<WorldItem>
+            {
+                new WorldItem
+                {
+                    Id = 2,
+                    Position = new Vector3(0,0,0),
+                    ItemType = ItemType.Apple,
+                    Collected = false
                 }
             }
         };

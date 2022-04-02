@@ -28,6 +28,8 @@ namespace World
             {
                 _currentScene = _worldItemStore.StartScene;
             }
+
+            SetBackgroundOfScene();
         }
 
         public List<WorldItem> WorldItemsForCurrentScene()
