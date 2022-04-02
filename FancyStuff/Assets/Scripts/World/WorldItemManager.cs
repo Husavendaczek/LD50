@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Helper;
 using Inventory;
-using RoomScene;
 using UnityEngine;
 
 namespace World
@@ -13,7 +12,7 @@ namespace World
         public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
 
         private readonly List<WorldItemMono> _currentViewableWorldItems = new List<WorldItemMono>();
-        private int maximumId = 0;
+        private int _maximumId = 0;
 
         private void Start()
         {
@@ -21,9 +20,9 @@ namespace World
 
             foreach (var worldItem in worldItemsForScene)
             {
-                if (worldItem.Id > maximumId)
+                if (worldItem.Id > _maximumId)
                 {
-                    maximumId = worldItem.Id;
+                    _maximumId = worldItem.Id;
                 }
                 _currentViewableWorldItems.Add(worldItemCreator.Create(worldItem));
             }
@@ -55,7 +54,7 @@ namespace World
 
         public WorldItem AddToWorldItems(ItemType itemType)
         {
-            return AddToWorldItems(maximumId + 1, itemType);
+            return AddToWorldItems(_maximumId + 1, itemType);
         }
 
         private WorldItem AddToWorldItems(int id, ItemType itemType)

@@ -48,8 +48,9 @@ namespace Movement
 
                 if (_door != null)
                 {
-                    var doorItem = _door.GetComponent<IDoor>();
+                    var doorItem = _door.GetComponent<DoorMono>();
                     doorItem.GoTo();
+                    player.transform.position = doorItem.enteredRoomPosition;
                     doorItem = null;
                 }
                 
@@ -84,7 +85,7 @@ namespace Movement
                     _worldItem = collidedItem;
                 }
 
-                if (collidedItem.GetComponent<IDoor>() != null)
+                if (collidedItem.GetComponent<DoorMono>() != null)
                 {
                     _worldItem = null;
                     _door = collidedItem;

@@ -1,14 +1,17 @@
-using RoomScene;
+using System;
 using UnityEngine;
 
 namespace Interaction.Doors
 {
-    public class StevesRoomDoor : MonoBehaviour, IDoor
+    public class DoorMono : MonoBehaviour
     {
+        public Action GoToRoom;
+        public Vector3 enteredRoomPosition;
+        public Sprite sprite;
+
         public void GoTo()
         {
-            var sceneLoader = FindObjectOfType<SceneLoader>();
-            sceneLoader.GoToKitchen();
+            GoToRoom();
         }
         
         private void OnMouseOver()
