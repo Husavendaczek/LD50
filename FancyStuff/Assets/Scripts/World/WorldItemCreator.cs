@@ -15,7 +15,7 @@ namespace World
         {
             var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
             worldItemGameObject.transform.position = worldItem.Position;
-            worldItemGameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
             
             worldItemGameObject.name = worldItem.ItemType + worldItem.Id.ToString();
 
@@ -34,7 +34,7 @@ namespace World
             
             var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
             worldItemGameObject.transform.position = position;
-            worldItemGameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
             
             worldItemGameObject.name = itemType + id.ToString();
 
