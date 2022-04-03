@@ -1,4 +1,5 @@
 using ItemProperty;
+using TMPro;
 using UnityEngine;
 using World;
 
@@ -34,8 +35,10 @@ namespace Inventory
             var inventoryItemSlot = inventoryItemSlotGameObject.GetComponent<InventoryItemSlot>();
             inventoryItemSlot.Item = inventoryItem;
             inventoryItemSlot.amount = 1;
-            inventoryItemSlot.amountText.text = "1x";
+            inventoryItemSlot.amountText.GetComponent<TextMeshProUGUI>().text = "1x";
             inventoryItemSlot.icon.sprite = ItemIcons.icons[itemTypeValue];
+            
+            //TODO maybe set button actions?
 
             return inventoryItemSlot;
         }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ItemProperty;
+using TMPro;
 using UnityEngine;
 
 namespace Inventory
@@ -54,7 +55,7 @@ namespace Inventory
             
             storedInventoryItemPairForItemType.amount = newAmount;
             
-            storedInventoryItemPairForItemType.amountText.text = newAmount + "x " + itemType;
+            storedInventoryItemPairForItemType.amountText.GetComponent<TextMeshProUGUI>().text = newAmount + "x " + itemType;
             
             return newAmount;
         }
