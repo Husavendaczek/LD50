@@ -60,12 +60,12 @@ namespace World
 
         public WorldItem AddToWorldItems(ItemType itemType)
         {
-            return AddToWorldItems(_maximumId + 1, itemType);
+            return AddToWorldItems(_maximumId + 1, itemType, false);
         }
 
-        private WorldItem AddToWorldItems(int id, ItemType itemType)
+        private WorldItem AddToWorldItems(int id, ItemType itemType, bool show = true)
         {
-            var worldItem = worldItemCreator.Create(id, itemType);
+            var worldItem = worldItemCreator.Create(id, itemType, show);
             worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
             return worldItem.MapTo();
         }

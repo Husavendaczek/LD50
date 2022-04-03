@@ -28,7 +28,7 @@ namespace World
             worldItemGameObject.GetComponent<WorldItemMono>().position = worldItem.Position;
         }
 
-        public WorldItemMono Create(int id, ItemType itemType)
+        public WorldItemMono Create(int id, ItemType itemType, bool show)
         {
             var tmp = GameObject.Find(itemType + id.ToString());
             if(tmp != null) return tmp.GetComponent<WorldItemMono>();
@@ -47,6 +47,8 @@ namespace World
             worldItemGameObject.GetComponent<WorldItemMono>().id = id;
             worldItemGameObject.GetComponent<WorldItemMono>().itemType = itemType;
             worldItemGameObject.GetComponent<WorldItemMono>().position = position;
+            
+            worldItemGameObject.SetActive(show);
 
             return worldItemGameObject.GetComponent<WorldItemMono>();
         }

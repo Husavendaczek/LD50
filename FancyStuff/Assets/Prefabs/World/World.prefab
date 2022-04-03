@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldItemsOfSceneLoader: {fileID: 0}
-  interactablePrefab: {fileID: 0}
+  interactablePrefab: {fileID: 2724521514136559815, guid: 6336b9d8f2e4843469a868baf905d7c7, type: 3}
   sprites:
   - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
   - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}

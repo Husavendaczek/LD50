@@ -74,9 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icons:
+  - {fileID: 21300000, guid: b69475cdbf7cb6747bfe5b6590bda174, type: 3}
   - {fileID: 21300000, guid: 721273174ecc41241b88c6442d61ab74, type: 3}
-  - {fileID: 21300000, guid: 721273174ecc41241b88c6442d61ab74, type: 3}
+  - {fileID: 21300000, guid: 4891f085e333cbc4e9fcf7ea0c1b02ee, type: 3}
+  - {fileID: 21300000, guid: 6c5dba390864d9f47bafc99ad2af3835, type: 3}
   - {fileID: 21300000, guid: 09040b7a869010543913660acd9f6815, type: 3}
-  - {fileID: 21300000, guid: 09040b7a869010543913660acd9f6815, type: 3}
-  - {fileID: 21300000, guid: 09040b7a869010543913660acd9f6815, type: 3}
+  - {fileID: 21300000, guid: b27df7639fd7d2b408aa70442fb19c5e, type: 3}
   - {fileID: 21300000, guid: 09040b7a869010543913660acd9f6815, type: 3}
