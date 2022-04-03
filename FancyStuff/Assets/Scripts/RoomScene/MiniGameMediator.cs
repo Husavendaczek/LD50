@@ -54,7 +54,7 @@ namespace RoomScene
             throw new System.NotImplementedException();
         }
 
-        public void PauseMovement(bool pause)
+        public void ShouldMove(bool pause)
         {
             
         }

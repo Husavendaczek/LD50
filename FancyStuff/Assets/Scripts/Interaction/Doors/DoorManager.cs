@@ -31,6 +31,8 @@ namespace Interaction.Doors
         {
             foreach (var currentViewableDoor in _currentViewableDoors)
             {
+                if (currentViewableDoor.gameObject == null) return;
+                
                 Destroy(currentViewableDoor.gameObject);
             }
         }

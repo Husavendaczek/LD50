@@ -29,7 +29,7 @@ namespace Inventory
             inventoryCanvas.SetActive(show);
             _showInventory = show;
             
-            Mediator.PauseMovement(!show);
+            Mediator.ShouldMove(!show);
         }
     }
 }

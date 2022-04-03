@@ -20,7 +20,7 @@ namespace RoomScene
 
         void StartInteraction(ItemType itemType);
 
-        void PauseMovement(bool pause);
+        void ShouldMove(bool pause);
 
         void ShowInventory(bool show);
         

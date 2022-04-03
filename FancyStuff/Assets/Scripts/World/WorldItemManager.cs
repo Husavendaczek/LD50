@@ -47,7 +47,6 @@ namespace World
 
         public void DropIntoWorld(int id, ItemType itemType)
         {
-            //TODO fix bug
             if (worldItemsOfSceneLoader.ExistsInSceneRooms(id))
             {
                 worldItemsOfSceneLoader.SetWorldItemCollected(id, false);
@@ -75,6 +74,8 @@ namespace World
         {
             foreach (var currentViewableWorldItem in _currentViewableWorldItems)
             {
+                if(currentViewableWorldItem.gameObject == null) return;
+                
                 Destroy(currentViewableWorldItem.gameObject);
             }
         }

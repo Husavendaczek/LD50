@@ -123,7 +123,7 @@ namespace RoomScene
             // _playerStateManager.StartInteraction();
         }
 
-        public void PauseMovement(bool pause)
+        public void ShouldMove(bool pause)
         {
             _playerMover.PauseMovement(pause);
         }
@@ -140,11 +140,16 @@ namespace RoomScene
             SceneManager.sceneLoaded += (scene, mode) => InitCurrentScene(doorItem.enteredRoomPosition);
         }
 
-        private void InitCurrentScene(Vector3 position)
+        public void InitCurrentScene()
         {
             _worldItemsOfSceneLoader.InitCurrentScene();
             _worldItemManager.InitWorldItems();
             _doorManager.InitDoors();
+        }
+
+        private void InitCurrentScene(Vector3 position)
+        {
+            InitCurrentScene();
             _playerMover.ResetPlayerPosition(position);
         }
     }

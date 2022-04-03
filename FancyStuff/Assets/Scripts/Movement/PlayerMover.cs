@@ -19,7 +19,7 @@ namespace Movement
         private GameObject _worldItem;
         private GameObject _door;
 
-        private bool _shouldMove = true;
+        private bool _shouldMove = false;
 
         private void Update()
         {
