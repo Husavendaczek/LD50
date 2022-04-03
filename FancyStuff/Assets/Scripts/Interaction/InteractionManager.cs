@@ -32,7 +32,6 @@ namespace Interaction
             if (_firstSelectedItem == null)
             {
                 CreateDragUIItem(targetType);
-                return;
             }
 
             var origintype = _firstSelectedItem.ItemType;
