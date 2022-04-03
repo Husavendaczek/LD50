@@ -3,6 +3,7 @@ using Interaction;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using World;
 
 namespace RoomScene
@@ -32,5 +33,11 @@ namespace RoomScene
         void ShowAchievement(AchievementType type);
         void ShowHappyEnd(bool happy);
         void InteractionManagerHasSelectedItem(IInteractable interactable);
+
+        void ShowMessage(Message message);
+        
+        void ShowSimpleMessage(SimpleMessage message);
+
+        void HideMessage();
     }
 }

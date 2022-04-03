@@ -3,6 +3,7 @@ using Interaction;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using UnityEngine;
 using World;
 
@@ -12,6 +13,7 @@ namespace RoomScene
     {
         private InventoryManager _inventoryManager;
         private AchievementManager _achievementManager;
+        private MessageManager _messageManager;
         
         private void Awake()
         {
@@ -22,6 +24,8 @@ namespace RoomScene
             _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();
 
             _achievementManager = FindObjectOfType<AchievementManager>();
+            
+            _messageManager = FindObjectOfType<MessageManager>();
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -87,6 +91,21 @@ namespace RoomScene
         public void InteractionManagerHasSelectedItem(IInteractable interactable)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void ShowMessage(Message message)
+        {
+            _messageManager.ShowMessage(message);
+        }
+        
+        public void ShowSimpleMessage(SimpleMessage message)
+        {
+            _messageManager.ShowSimpleMessage(message);
+        }
+
+        public void HideMessage()
+        {
+            _messageManager.HideMessage();
         }
     }
 }

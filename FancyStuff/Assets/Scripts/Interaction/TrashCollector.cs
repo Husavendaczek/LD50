@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Achieving;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using RoomScene;
 using UnityEngine;
 
@@ -37,12 +38,12 @@ namespace Interaction
         
         public void ShowContextMenu()
         {
-            throw new System.NotImplementedException();
+            //TODO show context menu with lupe
         }
 
         public void ShowText()
         {
-            throw new System.NotImplementedException();
+            _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Go, clean your room!"});
         }
 
         public void StartInteraction()
@@ -61,10 +62,11 @@ namespace Interaction
             else if (_interactableBadType.Contains(item.ItemType))
             {
                 //TODO show message: are you wasting food?
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Steven! Are you wasting food again?"});
             }
             else
             {
-                //TODO show error text
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Take that out of the trash!"});
             }
             _mediator.ShouldMove(true);
         }

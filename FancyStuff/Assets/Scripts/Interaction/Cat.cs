@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Achieving;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using RoomScene;
 using UnityEngine;
 
@@ -37,12 +38,12 @@ namespace Interaction
         
         public void ShowContextMenu()
         {
-            throw new System.NotImplementedException();
+            //TODO show context menu with speak
         }
 
         public void ShowText()
         {
-            throw new System.NotImplementedException();
+            _mediator.ShowSimpleMessage(new SimpleMessage { MessageText = "Meow!"});
         }
 
         public void StartInteraction()
@@ -63,7 +64,7 @@ namespace Interaction
             }
             else
             {
-                //TODO show error text
+                _mediator.ShowSimpleMessage(new SimpleMessage { MessageText = "Meow! Meow!"});
             }
             _mediator.ShouldMove(true);
         }

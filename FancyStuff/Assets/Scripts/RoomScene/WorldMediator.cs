@@ -4,6 +4,7 @@ using Interaction;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using Movement;
 using States;
 using UnityEngine;
@@ -35,6 +36,8 @@ namespace RoomScene
 
         private AchievementCreator _achievementCreator;
         private AchievementManager _achievementManager;
+
+        private MessageManager _messageManager;
 
         private void Awake()
         {
@@ -82,6 +85,8 @@ namespace RoomScene
             _achievementCreator = FindObjectOfType<AchievementCreator>();
             _achievementManager = FindObjectOfType<AchievementManager>();
             _achievementManager.achievementCreator = _achievementCreator;
+
+            _messageManager = FindObjectOfType<MessageManager>();
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -171,6 +176,21 @@ namespace RoomScene
         public void InteractionManagerHasSelectedItem(IInteractable interactable)
         {
             _interactionManager.HasSelectedItem(interactable);
+        }
+
+        public void ShowMessage(Message message)
+        {
+            _messageManager.ShowMessage(message);
+        }
+
+        public void ShowSimpleMessage(SimpleMessage message)
+        {
+            _messageManager.ShowSimpleMessage(message);
+        }
+
+        public void HideMessage()
+        {
+            _messageManager.HideMessage();
         }
 
         public void InitCurrentScene()

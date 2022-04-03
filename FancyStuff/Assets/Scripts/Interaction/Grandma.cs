@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Achieving;
 using Inventory;
 using ItemProperty;
+using Messaging;
 using RoomScene;
 using UnityEngine;
 
@@ -37,12 +38,12 @@ namespace Interaction
         
         public void ShowContextMenu()
         {
-            throw new System.NotImplementedException();
+            //TODO show context menu with speak
         }
 
         public void ShowText()
         {
-            throw new System.NotImplementedException();
+            //TODO show message
         }
 
         public void StartInteraction()
@@ -60,17 +61,17 @@ namespace Interaction
                     _mediator.RemoveAndHideInventory(item);
                     return;
                 }
-                //TODO show message: you should slice them
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "You should slice them!"});
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
-                //TODO show message: what is wrong with you? -> sad end
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What is wrong with you?!"});
                 _mediator.ShowHappyEnd(false);
                 _mediator.ShowAchievement(AchievementType.GrandmaKiller);
             }
             else
             {
-                //TODO show error text
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What should I do with that?"});
             }
             _mediator.ShouldMove(true);
         }
