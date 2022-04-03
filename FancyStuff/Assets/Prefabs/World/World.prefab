@@ -246,7 +246,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 4205861511890759634, guid: 3bebbe69ed16bd54f8d05563cb4dd74d, type: 3}
-  doorSprite: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+  doorSprites:
+  - {fileID: 21300000, guid: 3f6515d2fe2e36d40a54c01a5acdfeeb, type: 3}
+  - {fileID: 21300000, guid: dbb00724a6a80684893d455516ec0d01, type: 3}
+  - {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
+  - {fileID: 21300000, guid: ea9ca26656f7e3042a056aeb98d8c688, type: 3}
+  - {fileID: 21300000, guid: 02eeeccdd492e40449d3092728c73d0b, type: 3}
 --- !u!114 &875652162
 MonoBehaviour:
   m_ObjectHideFlags: 0

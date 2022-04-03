@@ -717,10 +717,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
-      propertyPath: sprites.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: eedf31d9255a8064b8a41fb65f69d68b, type: 3}
     - target: {fileID: 3348033400254140216, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1503,30 +1499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3f6515d2fe2e36d40a54c01a5acdfeeb, type: 3}
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: dbb00724a6a80684893d455516ec0d01, type: 3}
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
-    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
-      propertyPath: doorSprites.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
     - target: {fileID: 762245472093325691, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1632,25 +1604,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8010297289842226867, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}
-      propertyPath: icons.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8010297289842226867, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}
-      propertyPath: icons.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: d0b5fd619b90d6049a3cfc9786d03d06, type: 3}
-    - target: {fileID: 8010297289842226867, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}
-      propertyPath: icons.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: d131bcc89e3ecd948bb9773250af773d, type: 3}
-    - target: {fileID: 8010297289842226867, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}
-      propertyPath: icons.Array.data[6]
-      value: 
-      objectReference: {fileID: 21300000, guid: eedf31d9255a8064b8a41fb65f69d68b, type: 3}
-    - target: {fileID: 8010297289842226867, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}
-      propertyPath: icons.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: c36fa7f1ec254d341985003e7ea92880, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0faeaa599e30f264d94ef2193ab5389e, type: 3}

@@ -109,7 +109,7 @@ namespace World
                 new()
                 {
                     DoorName = "KitchenToGardenDoor",
-                    Position = new Vector3(-0.13f, -2.7f, 0),
+                    Position = new Vector3(-0.13f, -3.25f, 0),
                     EnteredRoomPosition = new Vector3(-0.13f, 3.5f, 0),
                     GoToRoom = SceneLoader.GoToGarden,
                     SpriteValue = 3
@@ -194,7 +194,7 @@ namespace World
                 new()
                 {
                     DoorName = "GardenToKitchenDoor",
-                    Position = new Vector3(-0.13f, 4.7f, 0),
+                    Position = new Vector3(-0.13f, 5.28f, 0),
                     EnteredRoomPosition = new Vector3(-0.13f, -1.25f, 0),
                     GoToRoom = SceneLoader.GoToKitchen,
                     SpriteValue = 4
