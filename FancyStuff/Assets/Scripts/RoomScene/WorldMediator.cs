@@ -48,6 +48,8 @@ namespace RoomScene
 
         private void Awake()
         {
+            DontDestroyOnLoad(this);
+            
             _gameStateLoader = FindObjectOfType<GameStateLoader>();
             
             _itemIcons = FindObjectOfType<ItemIcons>();

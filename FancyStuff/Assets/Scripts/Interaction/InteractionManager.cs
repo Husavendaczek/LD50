@@ -17,6 +17,11 @@ namespace Interaction
 
         public ItemIcons itemIcons;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Update()
         {
             if(_firstSelectedGO == null) return;
