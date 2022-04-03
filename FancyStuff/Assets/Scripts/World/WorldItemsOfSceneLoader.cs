@@ -60,15 +60,25 @@ namespace World
 
         public List<WorldItem> WorldItemsForCurrentScene()
         {
+            //TODO remove old world items
+            if (_currentScene != null)
+            {
+                return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+            }
+            
+            InitCurrentScene();
             return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
         }
         
         public IEnumerable<Door> DoorsForCurrentScene()
         {
-            if(_currentScene != null)
-                return _currentScene.ExistingDoors;
+            if (_currentScene == null)
+            {
+                InitCurrentScene();
+            }
+            
+            _worldItemStore.DestroyOldDoors(_currentScene);
 
-            InitCurrentScene();
             return _currentScene.ExistingDoors;
         }
 

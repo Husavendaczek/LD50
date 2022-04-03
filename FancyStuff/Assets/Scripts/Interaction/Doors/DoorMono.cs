@@ -5,6 +5,7 @@ namespace Interaction.Doors
 {
     public class DoorMono : MonoBehaviour
     {
+        public string doorName;
         public Action GoToRoom;
         public Vector3 enteredRoomPosition;
         public Sprite sprite;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
@@ -172,6 +173,35 @@ namespace World
                 LivingRoom,
                 Garden
             };
+        }
+
+        public void DestroyOldDoors(SceneRoom scene)
+        {
+            if (scene == null)
+            {
+                return;
+            }
+
+            if (!scene.ExistingDoors.Any())
+            {
+                return;
+            }
+
+            var existingDoors = AllSceneRooms().FirstOrDefault(sceneRoom => sceneRoom.SceneName == scene.SceneName)!.ExistingDoors;
+
+            var allViewableDoors = GameObject.FindGameObjectsWithTag("Door");
+
+            foreach (var viewableDoor in allViewableDoors)
+            {
+                var currentDoor = viewableDoor.GetComponent<DoorMono>();
+
+                var hasDoor = existingDoors.Where(door => door.DoorName == currentDoor.doorName);
+
+                if (!hasDoor.Any())
+                {
+                    Destroy(viewableDoor.gameObject);
+                }
+            }
         }
     }
 }

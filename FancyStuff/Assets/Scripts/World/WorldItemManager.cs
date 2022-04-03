@@ -76,14 +76,16 @@ namespace World
             _currentViewableWorldItems.Add(worldItem);
             return worldItem.MapTo();
         }
-
-        //TODO fix reset on new scene
+        
         private void ResetViewableWorldItems()
         {
-            foreach (var currentViewableWorldItem in _currentViewableWorldItems)
-            {
-                Destroy(currentViewableWorldItem.gameObject);
-            }
+            var tmp = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
+            
+            //TODO destroy ot hers
+            // foreach (var currentViewableWorldItem in _currentViewableWorldItems)
+            // {
+            //     Destroy(currentViewableWorldItem.gameObject);
+            // }
         }
     }
 }
