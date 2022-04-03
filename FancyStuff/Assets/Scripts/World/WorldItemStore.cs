@@ -27,7 +27,7 @@ namespace World
                 {
                     DoorName = "StevesRoomDoor",
                     Position = new Vector3(8.38f, -1.15f, 0),
-                    EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
+                    EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToKitchen
                 }
             },
@@ -67,7 +67,7 @@ namespace World
                 {
                     DoorName = "KitchenToStevesRoomDoor",
                     Position = new Vector3(-8.38f, -1.15f, 0),
-                    EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
+                    EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToStevesRoom
                 },
                 new()
@@ -81,7 +81,7 @@ namespace World
                 {
                     DoorName = "KitchenToLivingRoomDoor",
                     Position = new Vector3(8.38f, -1.15f, 0),
-                    EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
+                    EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToLivingRoom
                 }
             },
@@ -114,7 +114,7 @@ namespace World
                 {
                     DoorName = "LivingRoomToKitchenDoor",
                     Position = new Vector3(-8.38f, -1.15f, 0),
-                    EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
+                    EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToKitchen
                 }
             },
