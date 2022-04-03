@@ -16,6 +16,23 @@ namespace World
             SceneName = "StartScene",
             ExistingDoors = new List<Door>(),
             BackgroundValue = 0,
+            InteractableObjs = new List<InteractableObj>(),
+            WorldItems = new List<WorldItem>()
+        };
+        public SceneRoom SadEnd = new()
+        {
+            SceneName = "SadEnd",
+            ExistingDoors = new List<Door>(),
+            BackgroundValue = 0,
+            InteractableObjs = new List<InteractableObj>(),
+            WorldItems = new List<WorldItem>()
+        };
+        public SceneRoom HappyEnd = new()
+        {
+            SceneName = "HappyEnd",
+            ExistingDoors = new List<Door>(),
+            BackgroundValue = 0,
+            InteractableObjs = new List<InteractableObj>(),
             WorldItems = new List<WorldItem>()
         };
         
