@@ -1,3 +1,4 @@
+using Achieving;
 using Helper;
 using Interaction;
 using Interaction.Doors;
@@ -29,6 +30,10 @@ namespace RoomScene
 
         private PlayerStateManager _playerStateManager;
         private PlayerMover _playerMover;
+
+        private AchievementCreator _achievementCreator;
+        private AchievementManager _achievementManager;
+        private TrashCollector _trashCollector;
 
         private void Awake()
         {
@@ -70,6 +75,13 @@ namespace RoomScene
             _playerMover = FindObjectOfType<PlayerMover>();
             _playerMover.Mediator = this;
             _playerMover.playerStateManager = _playerStateManager;
+
+            _achievementCreator = FindObjectOfType<AchievementCreator>();
+            _achievementManager = FindObjectOfType<AchievementManager>();
+            _achievementManager.achievementCreator = _achievementCreator;
+
+            _trashCollector = FindObjectOfType<TrashCollector>();
+            _trashCollector.Mediator = this;
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -138,6 +150,11 @@ namespace RoomScene
             _playerStateManager.Reset();
             doorItem.GoTo();
             SceneManager.sceneLoaded += (scene, mode) => InitCurrentScene(doorItem.enteredRoomPosition);
+        }
+
+        public void ShowAchievement(AchievementType type)
+        {
+            _achievementManager.CompleteAchievement(type);
         }
 
         public void InitCurrentScene()

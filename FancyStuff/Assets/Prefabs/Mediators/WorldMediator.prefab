@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1737893903}
   - component: {fileID: 1737893904}
   - component: {fileID: 118178958}
+  - component: {fileID: 1690298335}
+  - component: {fileID: 1690298334}
   m_Layer: 0
   m_Name: WorldMediator
   m_TagString: Untagged
@@ -76,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryStore: {fileID: 0}
   inventoryCreator: {fileID: 0}
+  inventoryCanvasTransform: {fileID: 0}
 --- !u!114 &1737893903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84844798551b40c5a53b7e82f26a1904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldMediator: {fileID: 0}
   worldItemCreator: {fileID: 0}
   worldItemsOfSceneLoader: {fileID: 0}
 --- !u!114 &1737893904
@@ -117,3 +119,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverPrefab: {fileID: 4187060090865062916, guid: 5086a74bf4e97c04ab9713787159efd5, type: 3}
   itemIcons: {fileID: 0}
+--- !u!114 &1690298335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348033400254140222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3644d55cb46e3bb772d5b5ce444b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementCreator: {fileID: 0}
+--- !u!114 &1690298334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348033400254140222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991957dc939647baad5eb1637346fee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementPrefab: {fileID: 5070609477144081437, guid: ad9065306bf4ccc488e21b15852ea6b7, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 09040b7a869010543913660acd9f6815, type: 3}
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}

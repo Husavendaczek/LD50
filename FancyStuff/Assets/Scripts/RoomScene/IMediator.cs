@@ -1,3 +1,4 @@
+using Achieving;
 using Interaction.Doors;
 using Inventory;
 using World;
@@ -25,5 +26,7 @@ namespace RoomScene
         void ShowInventory(bool show);
         
         void SceneSwitchFromDoor(DoorMono doorItem);
+
+        void ShowAchievement(AchievementType type);
     }
 }

@@ -1,3 +1,4 @@
+using Achieving;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
@@ -9,6 +10,7 @@ namespace RoomScene
     public class MiniGameMediator : MonoBehaviour, IMediator
     {
         private InventoryManager _inventoryManager;
+        private AchievementManager _achievementManager;
         
         private void Awake()
         {
@@ -17,6 +19,8 @@ namespace RoomScene
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = FindObjectOfType<InventoryCreator>();
             _inventoryManager.inventoryCreator.ItemIcons = FindObjectOfType<ItemIcons>();
+
+            _achievementManager = FindObjectOfType<AchievementManager>();
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -67,6 +71,11 @@ namespace RoomScene
         public void SceneSwitchFromDoor(DoorMono doorItem)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void ShowAchievement(AchievementType type)
+        {
+            _achievementManager.CompleteAchievement(type);
         }
     }
 }
