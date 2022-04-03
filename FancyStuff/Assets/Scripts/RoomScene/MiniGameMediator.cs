@@ -4,6 +4,7 @@ using Interaction.Doors;
 using Inventory;
 using ItemProperty;
 using Messaging;
+using Scoring;
 using UnityEngine;
 using World;
 
@@ -14,6 +15,8 @@ namespace RoomScene
         private InventoryManager _inventoryManager;
         private AchievementManager _achievementManager;
         private MessageManager _messageManager;
+        private ScoreManager _scoreManager;
+        private GameStateLoader _gameStateLoader;
         
         private void Awake()
         {
@@ -26,6 +29,10 @@ namespace RoomScene
             _achievementManager = FindObjectOfType<AchievementManager>();
             
             _messageManager = FindObjectOfType<MessageManager>();
+
+            _scoreManager = FindObjectOfType<ScoreManager>();
+
+            _gameStateLoader = FindObjectOfType<GameStateLoader>();
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -83,9 +90,17 @@ namespace RoomScene
             _achievementManager.CompleteAchievement(type);
         }
 
-        public void ShowHappyEnd(bool happy)
+        public void ShowEnd()
         {
-            throw new System.NotImplementedException();
+            var isHappyEnd = _scoreManager.IsHappyEnd();
+            if (isHappyEnd)
+            {
+                _gameStateLoader.ShowHappyEnd();
+            }
+            else
+            {
+                _gameStateLoader.ShowSadEnd();
+            }
         }
 
         public void InteractionManagerHasSelectedItem(IInteractable interactable)
@@ -106,6 +121,11 @@ namespace RoomScene
         public void HideMessage()
         {
             _messageManager.HideMessage();
+        }
+
+        public void SetScore(int score)
+        {
+            _scoreManager.SetScore(score);
         }
     }
 }

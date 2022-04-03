@@ -65,7 +65,8 @@ namespace Interaction
             else if (_interactableBadType.Contains(item.ItemType))
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What is wrong with you?!"});
-                _mediator.ShowHappyEnd(false);
+                _mediator.SetScore(-100000);
+                _mediator.ShowEnd();
                 _mediator.ShowAchievement(AchievementType.GrandmaKiller);
             }
             else

@@ -6,6 +6,7 @@ using Inventory;
 using ItemProperty;
 using Messaging;
 using Movement;
+using Scoring;
 using States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,6 +41,8 @@ namespace RoomScene
         private AchievementManager _achievementManager;
 
         private MessageManager _messageManager;
+
+        private ScoreManager _scoreManager;
 
         private Vector3 _doorEnterPosition;
 
@@ -94,6 +97,8 @@ namespace RoomScene
             _playerMover.playerStateManager = _playerStateManager;
 
             _messageManager = FindObjectOfType<MessageManager>();
+
+            _scoreManager = FindObjectOfType<ScoreManager>();
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -176,18 +181,20 @@ namespace RoomScene
 
         public void ShowAchievement(AchievementType type)
         {
-            Debug.Log("show achievement");
             _achievementManager.CompleteAchievement(type);
         }
 
-        public void ShowHappyEnd(bool happy)
+        public void ShowEnd()
         {
-            if (happy)
+            var isHappyEnd = _scoreManager.IsHappyEnd();
+            if (isHappyEnd)
             {
                 _gameStateLoader.ShowHappyEnd();
-                return;
             }
-            _gameStateLoader.ShowSadEnd();
+            else
+            {
+                _gameStateLoader.ShowSadEnd();
+            }
         }
 
         public void InteractionManagerHasSelectedItem(IInteractable interactable)
@@ -208,6 +215,11 @@ namespace RoomScene
         public void HideMessage()
         {
             _messageManager.HideMessage();
+        }
+
+        public void SetScore(int score)
+        {
+            _scoreManager.SetScore(score);
         }
 
         public void InitCurrentScene()

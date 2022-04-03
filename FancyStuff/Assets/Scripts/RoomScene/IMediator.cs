@@ -31,7 +31,7 @@ namespace RoomScene
         void SceneSwitchFromDoor(DoorMono doorItem);
 
         void ShowAchievement(AchievementType type);
-        void ShowHappyEnd(bool happy);
+        void ShowEnd();
         void InteractionManagerHasSelectedItem(IInteractable interactable);
 
         void ShowMessage(Message message);
@@ -39,5 +39,6 @@ namespace RoomScene
         void ShowSimpleMessage(SimpleMessage message);
 
         void HideMessage();
+        void SetScore(int score);
     }
 }
