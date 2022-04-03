@@ -26,7 +26,7 @@ namespace Inventory
             if(slotToDelete == null) return;
             
             inventoryItemSlots.Remove(slotToDelete);
-            Destroy(slotToDelete);
+            Destroy(slotToDelete.gameObject);
             
             var itemToDelete = InventoryItems.FirstOrDefault(inventoryItem => inventoryItem.ID == id);
             if(itemToDelete == null) return;

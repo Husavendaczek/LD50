@@ -83,6 +83,7 @@ namespace RoomScene
 
             _trashCollector = FindObjectOfType<TrashCollector>();
             _trashCollector.Mediator = this;
+            _trashCollector.interactionManager = _interactionManager;
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -118,7 +119,7 @@ namespace RoomScene
 
         public void RemoveAndHideInventory(InventoryItem item)
         {
-            _inventoryManager.MoveItemFromInventoryToWorld(item);
+            _inventoryManager.RemoveLastItem(item.ItemType);
             _inventoryKeyManager.ShowInventory(false);
         }
 
@@ -136,9 +137,9 @@ namespace RoomScene
             // _playerStateManager.StartInteraction();
         }
 
-        public void ShouldMove(bool pause)
+        public void ShouldMove(bool move)
         {
-            _playerMover.PauseMovement(pause);
+            _playerMover.ShouldMove(move);
         }
 
         public void ShowInventory(bool show)
@@ -155,6 +156,7 @@ namespace RoomScene
 
         public void ShowAchievement(AchievementType type)
         {
+            Debug.Log("show achievement");
             _achievementManager.CompleteAchievement(type);
         }
 

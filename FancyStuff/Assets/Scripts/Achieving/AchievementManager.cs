@@ -34,6 +34,8 @@ namespace Achieving
             if(achieved == null) return;
             
             achieved.Achieved = true;
+
+            ShowAchievement(achieved);
         }
 
         private void ShowAchievement(Achievement achievement)

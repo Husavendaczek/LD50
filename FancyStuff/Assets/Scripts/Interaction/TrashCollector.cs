@@ -12,6 +12,22 @@ namespace Interaction
         public InteractionManager interactionManager;
         private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
         
+        private void OnMouseOver()
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color32(200,200,200, 255);
+        }
+
+        private void OnMouseExit()
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        private void OnMouseDown()
+        {
+            Mediator.ShouldMove(false);
+            StartInteraction();
+        }
+        
         public void ShowContextMenu()
         {
             throw new System.NotImplementedException();
@@ -40,6 +56,7 @@ namespace Interaction
             {
                 //TODO show error text
             }
+            Mediator.ShouldMove(true);
         }
     }
 }

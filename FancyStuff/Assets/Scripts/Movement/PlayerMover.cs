@@ -1,4 +1,5 @@
 using Helper;
+using Interaction;
 using Interaction.Doors;
 using RoomScene;
 using States;
@@ -61,9 +62,19 @@ namespace Movement
             }
         }
 
-        public void PauseMovement(bool pause)
+        public void ShouldMove(bool move)
         {
-            _shouldMove = pause;
+            _shouldMove = move;
+
+            if (!move)
+            {
+                playerStateManager.Reset();
+                return;
+            }
+
+            _target = player.transform.position;
+            _worldItem = null;
+            _door = null;
         }
 
         private void CheckForCollisionWithWorldItem()
@@ -80,6 +91,13 @@ namespace Movement
             if (overlapPoint != null)
             {
                 var collidedItem = overlapPoint.gameObject;
+
+                if (collidedItem.GetComponent<IInteractable>() != null)
+                {
+                    _target = player.transform.position;
+                    return;
+                }
+                
                 _target = collidedItem.transform.position;
                 if (collidedItem.GetComponent<WorldItemMono>() != null)
                 {
