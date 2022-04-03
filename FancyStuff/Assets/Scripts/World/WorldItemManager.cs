@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Helper;
@@ -13,6 +14,11 @@ namespace World
 
         private readonly List<WorldItemMono> _currentViewableWorldItems = new List<WorldItemMono>();
         private int _maximumId = 0;
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
 
         private void Start()
         {
@@ -70,12 +76,11 @@ namespace World
             return worldItem.MapTo();
         }
 
+        //TODO fix reset on new scene
         private void ResetViewableWorldItems()
         {
             foreach (var currentViewableWorldItem in _currentViewableWorldItems)
             {
-                if(currentViewableWorldItem.gameObject == null) return;
-                
                 Destroy(currentViewableWorldItem.gameObject);
             }
         }
