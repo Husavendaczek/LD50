@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +19,19 @@ namespace Achieving
             // achievementGameObject.GetComponent<AchievementMono>().sprite.GetComponent<Image>().sprite = sprites[(int) achievement.AchievementType];
             achievementGameObject.GetComponent<AchievementMono>().title.GetComponent<TextMeshProUGUI>().text = achievement.Title;
             achievementGameObject.GetComponent<AchievementMono>().message.GetComponent<TextMeshProUGUI>().text = achievement.Message;
+
+
+            StartCoroutine(ShowAchievement(achievementGameObject));
+
+        }
+        
+        private IEnumerator ShowAchievement(GameObject achievement)
+        {
+            achievement.gameObject.SetActive(true);
+            yield return new WaitForSeconds(3);
+            
+            achievement.gameObject.SetActive(false);
+            Destroy(achievement.gameObject);
         }
     }
 }

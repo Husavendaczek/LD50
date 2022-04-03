@@ -44,8 +44,8 @@ namespace States
         private void SetPlayerAnimation(string animationName, bool animated)
         {
             //TODO animate
-            // var animator = player.GetComponent<Animator>();
-            // animator.SetBool(name, animated);
+            var animator = player.GetComponent<Animator>();
+            animator.SetBool(animationName, animated);
         }
     }
 }
