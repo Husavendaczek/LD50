@@ -9,6 +9,7 @@ namespace Interaction
     public class TrashCollector : MonoBehaviour, IInteractable
     {
         public IMediator Mediator;
+        public InteractionManager interactionManager;
         private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
         
         public void ShowContextMenu()
@@ -23,11 +24,13 @@ namespace Interaction
 
         public void StartInteraction()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("start interaction with trash");
+            interactionManager.HasSelectedItem(this);
         }
 
         public void Interact(InventoryItem item)
         {
+            Debug.Log("interact with " + item.ItemType);
             if (_interactableType.Contains(item.ItemType))
             {
                 Mediator.RemoveAndHideInventory(item);

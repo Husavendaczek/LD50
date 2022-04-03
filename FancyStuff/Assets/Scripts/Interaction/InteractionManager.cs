@@ -1,3 +1,4 @@
+using System;
 using Inventory;
 using ItemProperty;
 using RoomScene;
@@ -15,6 +16,16 @@ namespace Interaction
         private InventoryItem _firstSelectedItem;
 
         public ItemIcons itemIcons;
+
+        private void Update()
+        {
+            if(_firstSelectedGO == null) return;
+            
+            var gameCanvas = GameObject.FindWithTag("GameCanvas").GetComponent<Canvas>();
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(gameCanvas.transform as RectTransform, Input.mousePosition, gameCanvas.worldCamera, out var pos);
+            var newPos = gameCanvas.transform.TransformPoint(pos);
+            _firstSelectedGO.transform.position = new Vector3(newPos.x + 30f, newPos.y - 20, newPos.z);
+        }
 
         public void Interact(ItemType targetType)
         {
@@ -46,9 +57,9 @@ namespace Interaction
         {
             if (_firstSelectedGO == null)
             {
-                var myCanvas = FindObjectOfType<InventoryPanelManager>().InventoryPanel;
-                _firstSelectedGO = Instantiate(hoverPrefab, myCanvas.transform, true);
-                _firstSelectedGO.transform.position = myCanvas.transform.position;
+                var gameCanvas = FindObjectOfType<InventoryPanelManager>().InventoryPanel;
+                _firstSelectedGO = Instantiate(hoverPrefab, gameCanvas.transform, true);
+                _firstSelectedGO.transform.position = gameCanvas.transform.position;
                 _firstSelectedItem = Mediator.FirstInventoryItem(itemType);
             }
             
@@ -60,6 +71,18 @@ namespace Interaction
         {
             Destroy(_firstSelectedGO);
             _firstSelectedItem = null;
+        }
+
+        public void HasSelectedItem(IInteractable interactable)
+        {
+            if (_firstSelectedItem == null)
+            {
+                interactable.ShowContextMenu();
+                return;
+            }
+            
+            interactable.Interact(_firstSelectedItem);
+            DeleteFirst();
         }
     }
 }

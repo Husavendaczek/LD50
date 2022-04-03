@@ -7,6 +7,7 @@ namespace Achieving
     public class AchievementManager : MonoBehaviour
     {
         public AchievementCreator achievementCreator;
+        public Transform gameCanvasTransform;
         
         private readonly List<Achievement> _allAchievements = new()
         {
@@ -37,7 +38,8 @@ namespace Achieving
 
         private void ShowAchievement(Achievement achievement)
         {
-            achievementCreator.Create(achievement, this.transform); //TODO check which transform, maybe inventorypanel
+            if(achievement.Achieved) return;
+            achievementCreator.Create(achievement, gameCanvasTransform);
         }
 
         public List<Achievement> CompleteAchievements()

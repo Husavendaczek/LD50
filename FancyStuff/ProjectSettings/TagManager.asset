@@ -8,6 +8,8 @@ TagManager:
   - Background
   - Door
   - WorldItem
+  - Interactable
+  - GameCanvas
   layers:
   - Default
   - TransparentFX
