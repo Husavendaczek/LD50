@@ -47,7 +47,8 @@ namespace World
                     DoorName = "StevesRoomDoor",
                     Position = new Vector3(8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
-                    GoToRoom = SceneLoader.GoToKitchen
+                    GoToRoom = SceneLoader.GoToKitchen,
+                    SpriteValue = 1
                 }
             },
             InteractableObjs = new List<InteractableObj>
@@ -76,9 +77,16 @@ namespace World
                 },
                 new()
                 {
+                    Id = 1,
+                    Position = new Vector3(-2,2.1f,0),
+                    ItemType = ItemType.Clothes,
+                    Collected = false
+                },
+                new()
+                {
                     Id = 2,
-                    Position = new Vector3(7,1,0),
-                    ItemType = ItemType.CatFood,
+                    Position = new Vector3(6,1,0),
+                    ItemType = ItemType.RottenBanana,
                     Collected = false
                 },
             }
@@ -95,21 +103,24 @@ namespace World
                     DoorName = "KitchenToStevesRoomDoor",
                     Position = new Vector3(-8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
-                    GoToRoom = SceneLoader.GoToStevesRoom
+                    GoToRoom = SceneLoader.GoToStevesRoom,
+                    SpriteValue = 0
                 },
                 new()
                 {
                     DoorName = "KitchenToGardenDoor",
                     Position = new Vector3(-0.13f, -2.7f, 0),
                     EnteredRoomPosition = new Vector3(-0.13f, 3.5f, 0),
-                    GoToRoom = SceneLoader.GoToGarden
+                    GoToRoom = SceneLoader.GoToGarden,
+                    SpriteValue = 3
                 },
                 new()
                 {
                     DoorName = "KitchenToLivingRoomDoor",
                     Position = new Vector3(8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
-                    GoToRoom = SceneLoader.GoToLivingRoom
+                    GoToRoom = SceneLoader.GoToLivingRoom,
+                    SpriteValue = 1
                 }
             },
             InteractableObjs = new List<InteractableObj>
@@ -150,7 +161,8 @@ namespace World
                     DoorName = "LivingRoomToKitchenDoor",
                     Position = new Vector3(-8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
-                    GoToRoom = SceneLoader.GoToKitchen
+                    GoToRoom = SceneLoader.GoToKitchen,
+                    SpriteValue = 2
                 }
             },
             InteractableObjs = new List<InteractableObj>
@@ -184,7 +196,8 @@ namespace World
                     DoorName = "GardenToKitchenDoor",
                     Position = new Vector3(-0.13f, 4.7f, 0),
                     EnteredRoomPosition = new Vector3(-0.13f, -1.25f, 0),
-                    GoToRoom = SceneLoader.GoToKitchen
+                    GoToRoom = SceneLoader.GoToKitchen,
+                    SpriteValue = 4
                 }
             },
             InteractableObjs = new List<InteractableObj>(),

@@ -1503,6 +1503,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f6515d2fe2e36d40a54c01a5acdfeeb, type: 3}
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: dbb00724a6a80684893d455516ec0d01, type: 3}
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
+    - target: {fileID: 875652163, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
+      propertyPath: doorSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 04da1bc7e52a86e449ab1954dde155f4, type: 3}
     - target: {fileID: 762245472093325691, guid: 4535c940617fd6e4b8cdae7d35a492cb, type: 3}
       propertyPath: m_RootOrder
       value: 5

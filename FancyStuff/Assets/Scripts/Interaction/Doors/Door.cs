@@ -9,6 +9,7 @@ namespace Interaction.Doors
         public Action GoToRoom;
         public Vector3 Position;
         public Vector3 EnteredRoomPosition;
+        public int SpriteValue;
 
         public void GoTo()
         {
