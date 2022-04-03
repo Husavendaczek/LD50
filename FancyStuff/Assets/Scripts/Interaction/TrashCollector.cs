@@ -12,7 +12,7 @@ namespace Interaction
     public class TrashCollector : MonoBehaviour, IInteractable
     {
         private IMediator _mediator;
-        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
+        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash, ItemType.RottenBanana };
         private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple, ItemType.CatFood };
 
         private void Start()

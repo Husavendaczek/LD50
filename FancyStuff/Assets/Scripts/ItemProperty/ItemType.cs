@@ -8,6 +8,7 @@ namespace ItemProperty
         Knife,
         CatFood,
         AppleSlice,
-        Clothes
+        Clothes,
+        RottenBanana
     }
 }
