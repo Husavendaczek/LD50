@@ -1,3 +1,5 @@
+using ItemProperty;
+
 namespace Inventory
 {
     public class InventoryItem

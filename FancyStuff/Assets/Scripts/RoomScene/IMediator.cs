@@ -1,6 +1,8 @@
 using Achieving;
+using Interaction;
 using Interaction.Doors;
 using Inventory;
+using ItemProperty;
 using World;
 
 namespace RoomScene
@@ -28,5 +30,7 @@ namespace RoomScene
         void SceneSwitchFromDoor(DoorMono doorItem);
 
         void ShowAchievement(AchievementType type);
+        void ShowHappyEnd(bool happy);
+        void InteractionManagerHasSelectedItem(IInteractable interactable);
     }
 }

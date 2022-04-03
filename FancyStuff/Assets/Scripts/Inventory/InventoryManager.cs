@@ -1,5 +1,6 @@
 using System;
 using Helper;
+using ItemProperty;
 using RoomScene;
 using UnityEngine;
 using World;

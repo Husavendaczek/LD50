@@ -1,4 +1,5 @@
 using Inventory;
+using ItemProperty;
 using UnityEngine;
 
 namespace World

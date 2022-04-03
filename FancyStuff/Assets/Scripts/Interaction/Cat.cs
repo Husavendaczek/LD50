@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Achieving;
 using Inventory;
@@ -8,17 +7,18 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public class TrashCollector : MonoBehaviour, IInteractable
+    public class Cat : MonoBehaviour, IInteractable
     {
         private IMediator _mediator;
-        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
-        private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple, ItemType.CatFood };
+        
+        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.CatFood };
+        private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.Clothes };
 
         private void Start()
         {
             _mediator = GameObject.FindWithTag("WorldMediator").GetComponent<WorldMediator>();
         }
-
+        
         private void OnMouseOver()
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color32(200,200,200, 255);
@@ -56,11 +56,10 @@ namespace Interaction
             if (_interactableType.Contains(item.ItemType))
             {
                 _mediator.RemoveAndHideInventory(item);
-                _mediator.ShowAchievement(AchievementType.CleanedStevesRoom);
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
-                //TODO show message: are you wasting food?
+                _mediator.ShowAchievement(AchievementType.CatDresser);
             }
             else
             {

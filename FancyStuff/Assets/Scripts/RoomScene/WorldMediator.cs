@@ -14,6 +14,8 @@ namespace RoomScene
 {
     public class WorldMediator : MonoBehaviour, IMediator
     {
+        private GameStateLoader _gameStateLoader;
+        
         private InventoryCreator _inventoryCreator;
         private InventoryManager _inventoryManager;
         private InventoryKeyManager _inventoryKeyManager;
@@ -33,10 +35,11 @@ namespace RoomScene
 
         private AchievementCreator _achievementCreator;
         private AchievementManager _achievementManager;
-        private TrashCollector _trashCollector;
 
         private void Awake()
         {
+            _gameStateLoader = FindObjectOfType<GameStateLoader>();
+            
             _itemIcons = FindObjectOfType<ItemIcons>();
             
             _inventoryCreator = FindObjectOfType<InventoryCreator>();
@@ -79,10 +82,6 @@ namespace RoomScene
             _achievementCreator = FindObjectOfType<AchievementCreator>();
             _achievementManager = FindObjectOfType<AchievementManager>();
             _achievementManager.achievementCreator = _achievementCreator;
-
-            _trashCollector = FindObjectOfType<TrashCollector>();
-            _trashCollector.Mediator = this;
-            _trashCollector.interactionManager = _interactionManager;
         }
 
         public void CreateItemInWorld(ItemType itemType)
@@ -157,6 +156,21 @@ namespace RoomScene
         {
             Debug.Log("show achievement");
             _achievementManager.CompleteAchievement(type);
+        }
+
+        public void ShowHappyEnd(bool happy)
+        {
+            if (happy)
+            {
+                _gameStateLoader.ShowHappyEnd();
+                return;
+            }
+            _gameStateLoader.ShowSadEnd();
+        }
+
+        public void InteractionManagerHasSelectedItem(IInteractable interactable)
+        {
+            _interactionManager.HasSelectedItem(interactable);
         }
 
         public void InitCurrentScene()

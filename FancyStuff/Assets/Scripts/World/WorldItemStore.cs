@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Interaction.Doors;
 using Inventory;
+using ItemProperty;
 using RoomScene;
 using UnityEngine;
 

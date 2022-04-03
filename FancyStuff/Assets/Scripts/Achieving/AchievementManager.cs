@@ -28,6 +28,13 @@ namespace Achieving
                 Title = "Nature Lover",
                 Message = "You really love the nature",
                 Achieved = false
+            },
+            new Achievement
+            {
+                AchievementType = AchievementType.CatDresser,
+                Title = "Cat Dresser",
+                Message = "I don't  know if the cat likes it",
+                Achieved = false
             }
         };
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Achieving;
 using Inventory;
@@ -8,17 +7,18 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public class TrashCollector : MonoBehaviour, IInteractable
+    public class Grandma : MonoBehaviour, IInteractable
     {
         private IMediator _mediator;
-        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
-        private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple, ItemType.CatFood };
+        
+        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple };
+        private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.Knife };
 
         private void Start()
         {
             _mediator = GameObject.FindWithTag("WorldMediator").GetComponent<WorldMediator>();
         }
-
+        
         private void OnMouseOver()
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color32(200,200,200, 255);
@@ -55,12 +55,18 @@ namespace Interaction
             Debug.Log("interact with " + item.ItemType);
             if (_interactableType.Contains(item.ItemType))
             {
-                _mediator.RemoveAndHideInventory(item);
-                _mediator.ShowAchievement(AchievementType.CleanedStevesRoom);
+                if (item.ItemType == ItemType.AppleSlice)
+                {
+                    _mediator.RemoveAndHideInventory(item);
+                    return;
+                }
+                //TODO show message: you should slice them
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
-                //TODO show message: are you wasting food?
+                //TODO show message: what is wrong with you? -> sad end
+                _mediator.ShowHappyEnd(false);
+                _mediator.ShowAchievement(AchievementType.GrandmaKiller);
             }
             else
             {

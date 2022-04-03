@@ -1,4 +1,4 @@
-namespace Inventory
+namespace ItemProperty
 {
     public enum ItemType
     {
@@ -7,6 +7,7 @@ namespace Inventory
         Apple,
         Knife,
         CatFood,
-        AppleSlice
+        AppleSlice,
+        Clothes
     }
 }

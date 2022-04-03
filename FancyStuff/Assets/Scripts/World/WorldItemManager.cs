@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Helper;
 using Inventory;
+using ItemProperty;
 using UnityEngine;
 
 namespace World

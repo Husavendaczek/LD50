@@ -1,4 +1,5 @@
 using Achieving;
+using Interaction;
 using Interaction.Doors;
 using Inventory;
 using ItemProperty;
@@ -76,6 +77,16 @@ namespace RoomScene
         public void ShowAchievement(AchievementType type)
         {
             _achievementManager.CompleteAchievement(type);
+        }
+
+        public void ShowHappyEnd(bool happy)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void InteractionManagerHasSelectedItem(IInteractable interactable)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
