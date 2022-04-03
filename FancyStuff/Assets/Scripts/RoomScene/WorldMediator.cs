@@ -238,6 +238,7 @@ namespace RoomScene
             _worldItemManager.InitWorldItems();
             _doorManager.InitDoors();
             _interactableObjectManager.InitInteractables();
+            _inventoryManager.SetInventoryActions();
         }
     }
 }

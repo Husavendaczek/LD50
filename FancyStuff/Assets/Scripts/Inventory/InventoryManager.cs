@@ -36,6 +36,18 @@ namespace Inventory
                 inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
             }
         }
+        
+        //TODO fix inventory bug on scene switch
+        public void SetInventoryActions()
+        {
+            var allInventorySlots = GameObject.FindGameObjectsWithTag("InventoryItemSlot");
+            foreach (var inventorySlot in allInventorySlots)
+            {
+                var inventoryItemSlot = inventorySlot.GetComponent<InventoryItemSlot>();
+                inventoryItemSlot.remove = () => MoveItemFromInventoryToWorld(inventoryItemSlot.Item);
+                inventoryItemSlot.interact = () => Mediator.StartInteraction(inventoryItemSlot.Item.ItemType);
+            }
+        }
 
         public void MoveItemFromInventoryToWorld(InventoryItem inventoryItem)
         {

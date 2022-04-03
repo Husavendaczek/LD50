@@ -1,4 +1,5 @@
 using System;
+using Inventory;
 using UnityEngine;
 
 namespace Interaction.Doors
@@ -17,6 +18,9 @@ namespace Interaction.Doors
         
         private void OnMouseOver()
         {
+            var keyManager = FindObjectOfType<InventoryKeyManager>();
+            if (keyManager.IsInventoryVisible()) return;
+            
             gameObject.GetComponent<SpriteRenderer>().color = new Color32(200,200,200, 255);
         }
 

@@ -31,5 +31,10 @@ namespace Inventory
             
             Mediator.ShouldMove(!show);
         }
+
+        public bool IsInventoryVisible()
+        {
+            return _showInventory;
+        }
     }
 }

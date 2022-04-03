@@ -11,6 +11,7 @@ TagManager:
   - Interactable
   - GameCanvas
   - WorldMediator
+  - InventoryItemSlot
   layers:
   - Default
   - TransparentFX
