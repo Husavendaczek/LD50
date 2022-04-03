@@ -69,15 +69,17 @@ namespace Movement
         private void CheckForCollisionWithWorldItem()
         {
             var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            CheckForCollisionWith(worldPosition);
+        }
+
+        private void CheckForCollisionWith(Vector3 worldPosition)
+        {
             Collider2D overlapPoint = Physics2D.OverlapPoint(worldPosition);
             playerStateManager.StartWalkingAnimation();
-            
-            //TODO check for door collision
 
             if (overlapPoint != null)
             {
                 var collidedItem = overlapPoint.gameObject;
-                //TODO clamp target
                 _target = collidedItem.transform.position;
                 if (collidedItem.GetComponent<WorldItemMono>() != null)
                 {
@@ -93,7 +95,6 @@ namespace Movement
             }
             else
             {
-                //TODO clamp target
                 _target = worldPosition;
                 _worldItem = null;
                 _door = null;

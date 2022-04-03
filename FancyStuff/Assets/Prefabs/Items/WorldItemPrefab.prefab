@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5347314822048936426}
   - component: {fileID: 5347314822048936436}
   - component: {fileID: 5347314822048936427}
-  m_Layer: 31
+  m_Layer: 3
   m_Name: WorldItemPrefab
   m_TagString: WorldItem
   m_Icon: {fileID: 0}

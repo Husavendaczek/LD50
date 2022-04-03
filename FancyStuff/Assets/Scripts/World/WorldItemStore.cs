@@ -49,7 +49,7 @@ namespace World
                 },
                 new()
                 {
-                    Id = 6,
+                    Id = 2,
                     Position = new Vector3(7,1,0),
                     ItemType = ItemType.CatFood,
                     Collected = false
@@ -89,14 +89,14 @@ namespace World
             {
                 new()
                 {
-                    Id = 2,
+                    Id = 3,
                     Position = new Vector3(2,0,0),
                     ItemType = ItemType.CatFood,
                     Collected = false
                 },
                 new()
                 {
-                    Id = 2,
+                    Id = 4,
                     Position = new Vector3(0,1.6f,0),
                     ItemType = ItemType.Knife,
                     Collected = false
@@ -122,7 +122,7 @@ namespace World
             {
                 new()
                 {
-                    Id = 2,
+                    Id = 5,
                     Position = new Vector3(-4,0,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
@@ -148,7 +148,7 @@ namespace World
             {
                 new()
                 {
-                    Id = 2,
+                    Id = 6,
                     Position = new Vector3(-4,1,0),
                     ItemType = ItemType.Apple,
                     Collected = false

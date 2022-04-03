@@ -147,10 +147,5 @@ namespace RoomScene
             _doorManager.InitDoors();
             _playerMover.ResetPlayerPosition(position);
         }
-
-        private void RemoveItemsFromOtherScenes()
-        {
-            
-        }
     }
 }
