@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Helper;
-using Inventory;
 using ItemProperty;
 using UnityEngine;
 
@@ -13,7 +10,6 @@ namespace World
         public WorldItemCreator worldItemCreator;
         public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
 
-        private readonly List<WorldItemMono> _currentViewableWorldItems = new List<WorldItemMono>();
         private int _maximumId = 0;
 
         private void Awake()
@@ -28,27 +24,25 @@ namespace World
 
         public void InitWorldItems()
         {
-            ResetViewableWorldItems();
-            
+            Debug.Log("init world items");
             var worldItemsForScene = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
 
             foreach (var worldItem in worldItemsForScene)
             {
+                worldItemCreator.Create(worldItem);
                 if (worldItem.Id > _maximumId)
                 {
                     _maximumId = worldItem.Id;
                 }
-                _currentViewableWorldItems.Add(worldItemCreator.Create(worldItem));
             }
         }
 
         public void CollectFromWorld(WorldItemMono worldItem)
         {
-            if (!_currentViewableWorldItems.Any()) return;
+            if (!worldItemsOfSceneLoader.WorldItemsForCurrentScene().Any()) return;
 
             worldItemsOfSceneLoader.SetWorldItemCollected(worldItem.id, true);
             
-            _currentViewableWorldItems.Remove(worldItem);
             Destroy(worldItem.gameObject);
         }
 
@@ -73,19 +67,7 @@ namespace World
         {
             var worldItem = worldItemCreator.Create(id, itemType);
             worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
-            _currentViewableWorldItems.Add(worldItem);
             return worldItem.MapTo();
-        }
-        
-        private void ResetViewableWorldItems()
-        {
-            var tmp = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
-            
-            //TODO destroy ot hers
-            // foreach (var currentViewableWorldItem in _currentViewableWorldItems)
-            // {
-            //     Destroy(currentViewableWorldItem.gameObject);
-            // }
         }
     }
 }

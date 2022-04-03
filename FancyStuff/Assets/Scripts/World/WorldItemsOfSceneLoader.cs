@@ -60,13 +60,13 @@ namespace World
 
         public List<WorldItem> WorldItemsForCurrentScene()
         {
-            //TODO remove old world items
-            if (_currentScene != null)
+            if (_currentScene == null)
             {
-                return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
+                InitCurrentScene();
             }
             
-            InitCurrentScene();
+            _worldItemStore.DestroyOldWorldItems(_currentScene);
+
             return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
         }
         

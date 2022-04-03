@@ -189,7 +189,7 @@ namespace World
 
             var existingDoors = AllSceneRooms().FirstOrDefault(sceneRoom => sceneRoom.SceneName == scene.SceneName)!.ExistingDoors;
 
-            var allViewableDoors = GameObject.FindGameObjectsWithTag("Door");
+            var allViewableDoors = GameObject.FindGameObjectsWithTag("Door").ToList();
 
             foreach (var viewableDoor in allViewableDoors)
             {
@@ -200,6 +200,36 @@ namespace World
                 if (!hasDoor.Any())
                 {
                     Destroy(viewableDoor.gameObject);
+                }
+            }
+        }
+
+        public void DestroyOldWorldItems(SceneRoom scene)
+        {
+            if (scene == null)
+            {
+                return;
+            }
+
+            if (!scene.WorldItems.Any())
+            {
+                return;
+            }
+
+            var existingWorldItems =
+                AllSceneRooms().FirstOrDefault(sceneRoom => sceneRoom.SceneName == scene.SceneName)!.WorldItems;
+
+            var allViewableWorldItems = GameObject.FindGameObjectsWithTag("WorldItem");
+
+            foreach (var viewableWorldItem in allViewableWorldItems)
+            {
+                var currentWorldItem = viewableWorldItem.GetComponent<WorldItemMono>();
+
+                var hasWorldItem = existingWorldItems.Where(item => item.Id == currentWorldItem.id);
+
+                if (!hasWorldItem.Any())
+                {
+                    Destroy(viewableWorldItem.gameObject);
                 }
             }
         }
