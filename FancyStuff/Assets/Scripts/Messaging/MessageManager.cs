@@ -24,22 +24,22 @@ namespace Messaging
         public void ShowMessage(Message message)
         {
             var messageMono = messageGameObject.GetComponent<MessageMono>();
-            messageMono.messageText.GetComponent<TextMeshPro>().text = message.MessageText;
+            messageMono.messageText.GetComponent<TextMeshProUGUI>().text = message.MessageText;
             
             var answerA = messageMono.answerA.GetComponent<MessageOption>();
-            answerA.messageText.GetComponent<TextMeshPro>().text = message.AnswerA;
+            answerA.messageText.GetComponent<TextMeshProUGUI>().text = message.AnswerA;
             answerA.gameObject.GetComponent<Button>().onClick = message.OptionA;
             
             var answerB = messageMono.answerB.GetComponent<MessageOption>();
-            answerB.messageText.GetComponent<TextMeshPro>().text = message.AnswerB;
+            answerB.messageText.GetComponent<TextMeshProUGUI>().text = message.AnswerB;
             answerB.gameObject.GetComponent<Button>().onClick = message.OptionB;
             
             var answerC = messageMono.answerC.GetComponent<MessageOption>();
-            answerC.messageText.GetComponent<TextMeshPro>().text = message.AnswerC;
+            answerC.messageText.GetComponent<TextMeshProUGUI>().text = message.AnswerC;
             answerC.gameObject.GetComponent<Button>().onClick = message.OptionC;
             
             var answerAbort = messageMono.answerAbort.GetComponent<MessageOption>();
-            answerAbort.messageText.GetComponent<TextMeshPro>().text = message.AnswerAbort;
+            answerAbort.messageText.GetComponent<TextMeshProUGUI>().text = message.AnswerAbort;
             answerAbort.gameObject.GetComponent<Button>().onClick = message.Abort;
             
             messageGameObject.SetActive(true);
@@ -48,7 +48,7 @@ namespace Messaging
 
         public void ShowSimpleMessage(SimpleMessage message)
         {
-            simpleMessageGameObject.GetComponent<TextMeshPro>().text = message.MessageText;
+            simpleMessageGameObject.GetComponent<TextMeshProUGUI>().text = message.MessageText;
             simpleMessageGameObject.SetActive(true);
 
             _isShowingSimpleMessage = true;
