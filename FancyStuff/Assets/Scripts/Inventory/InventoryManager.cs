@@ -3,6 +3,7 @@ using Helper;
 using ItemProperty;
 using RoomScene;
 using UnityEngine;
+using UnityEngine.UI;
 using World;
 
 namespace Inventory
@@ -30,9 +31,9 @@ namespace Inventory
             else
             {
                 var inventoryItemSlot = inventoryCreator.Create(worldItem, inventoryCanvasTransform);
-                inventoryItemSlot.remove = () => MoveItemFromInventoryToWorld(worldItem.MapTo());
-                inventoryItemSlot.interact = () => Mediator.StartInteraction(worldItem.ItemType);
-                
+                inventoryItemSlot.removeButton.GetComponent<Button>().onClick.AddListener(() => MoveItemFromInventoryToWorld(worldItem.MapTo()));
+                inventoryItemSlot.interactionButton.GetComponent<Button>().onClick.AddListener(() => Mediator.StartInteraction(worldItem.ItemType));
+
                 inventoryStore.AddToInventoryItemSlot(inventoryItemSlot);
             }
         }

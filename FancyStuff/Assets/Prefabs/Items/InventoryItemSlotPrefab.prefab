@@ -226,19 +226,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4690959445698551804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9116304802940085601}
-        m_TargetAssemblyTypeName: Inventory.InventoryItemSlot, Assembly-CSharp
-        m_MethodName: Interact
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5758616389365630921
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,19 +556,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8951845006756412903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9116304802940085601}
-        m_TargetAssemblyTypeName: Inventory.InventoryItemSlot, Assembly-CSharp
-        m_MethodName: Remove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8615742940514597900
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,3 +695,5 @@ MonoBehaviour:
   amount: 0
   amountText: {fileID: 7515731542769868904}
   icon: {fileID: 4316097984188545914}
+  interactionButton: {fileID: 1596636616681652591}
+  removeButton: {fileID: 7730354548233561647}
