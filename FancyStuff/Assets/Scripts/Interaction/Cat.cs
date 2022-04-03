@@ -61,6 +61,13 @@ namespace Interaction
             {
                 _mediator.ShowAchievement(AchievementType.CatDresser);
             }
+            else if (item.ItemType == ItemType.Knife)
+            {
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What is wrong with you?!"});
+                _mediator.SetScore(-100000);
+                _mediator.ShowEnd();
+                _mediator.ShowAchievement(AchievementType.CatKiller);
+            }
             else
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage { MessageText = "Meow! Meow!"});

@@ -5,6 +5,7 @@ namespace Achieving
         CleanedStevesRoom,
         NatureLover,
         CatDresser,
-        GrandmaKiller
+        GrandmaKiller,
+        CatKiller
     }
 }
