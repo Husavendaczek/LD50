@@ -32,7 +32,6 @@ namespace Interaction
 
         private void OnMouseDown()
         {
-            _mediator.ShouldMove(false);
             StartInteraction();
         }
         
@@ -73,7 +72,6 @@ namespace Interaction
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What should I do with that?"});
             }
-            _mediator.ShouldMove(true);
         }
     }
 }

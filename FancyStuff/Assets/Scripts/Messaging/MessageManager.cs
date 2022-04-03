@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Messaging
 {
@@ -27,19 +28,19 @@ namespace Messaging
             
             var answerA = messageMono.answerA.GetComponent<MessageOption>();
             answerA.messageText.GetComponent<TextMeshPro>().text = message.AnswerA;
-            answerA.Option = message.OptionA;
+            answerA.gameObject.GetComponent<Button>().onClick = message.OptionA;
             
             var answerB = messageMono.answerB.GetComponent<MessageOption>();
             answerB.messageText.GetComponent<TextMeshPro>().text = message.AnswerB;
-            answerB.Option = message.OptionB;
+            answerB.gameObject.GetComponent<Button>().onClick = message.OptionB;
             
             var answerC = messageMono.answerC.GetComponent<MessageOption>();
             answerC.messageText.GetComponent<TextMeshPro>().text = message.AnswerC;
-            answerC.Option = message.OptionC;
+            answerC.gameObject.GetComponent<Button>().onClick = message.OptionC;
             
             var answerAbort = messageMono.answerAbort.GetComponent<MessageOption>();
             answerAbort.messageText.GetComponent<TextMeshPro>().text = message.AnswerAbort;
-            answerAbort.Option = message.Abort;
+            answerAbort.gameObject.GetComponent<Button>().onClick = message.Abort;
             
             messageGameObject.SetActive(true);
             _isShowingSimpleMessage = false;

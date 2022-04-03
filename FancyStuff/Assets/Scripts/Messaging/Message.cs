@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.UI;
 
 namespace Messaging
 {
@@ -9,9 +10,9 @@ namespace Messaging
         public string AnswerB;
         public string AnswerC;
         public string AnswerAbort;
-        public Action OptionA;
-        public Action OptionB;
-        public Action OptionC;
-        public Action Abort;
+        public Button.ButtonClickedEvent OptionA;
+        public Button.ButtonClickedEvent OptionB;
+        public Button.ButtonClickedEvent OptionC;
+        public Button.ButtonClickedEvent Abort;
     }
 }

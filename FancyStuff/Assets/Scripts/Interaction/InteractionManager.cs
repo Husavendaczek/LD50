@@ -29,8 +29,6 @@ namespace Interaction
 
         public void Interact(ItemType targetType)
         {
-            Mediator.ShouldMove(false);
-            
             if (_firstSelectedItem == null)
             {
                 CreateDragUIItem(targetType);
@@ -46,7 +44,6 @@ namespace Interaction
                 Mediator.RemoveItemFromInventory(targetType);
 
                 DeleteFirst();
-                Mediator.ShouldMove(true);
             }
         }
         
@@ -78,7 +75,6 @@ namespace Interaction
 
         public void HasSelectedItem(IInteractable interactable)
         {
-            Mediator.ShouldMove(false);
             if (_firstSelectedItem == null)
             {
                 interactable.ShowContextMenu();
@@ -87,7 +83,6 @@ namespace Interaction
             
             interactable.Interact(_firstSelectedItem);
             DeleteFirst();
-            Mediator.ShouldMove(true);
         }
     }
 }

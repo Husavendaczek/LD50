@@ -32,7 +32,6 @@ namespace Interaction
 
         private void OnMouseDown()
         {
-            _mediator.ShouldMove(false);
             StartInteraction();
         }
         
@@ -68,7 +67,6 @@ namespace Interaction
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Take that out of the trash!"});
             }
-            _mediator.ShouldMove(true);
         }
     }
 }
