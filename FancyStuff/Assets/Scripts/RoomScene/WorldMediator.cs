@@ -79,7 +79,6 @@ namespace RoomScene
             _achievementCreator = FindObjectOfType<AchievementCreator>();
             _achievementManager = FindObjectOfType<AchievementManager>();
             _achievementManager.achievementCreator = _achievementCreator;
-            _achievementManager.gameCanvasTransform = inventoryPanel.InventoryPanel.transform;
 
             _trashCollector = FindObjectOfType<TrashCollector>();
             _trashCollector.Mediator = this;

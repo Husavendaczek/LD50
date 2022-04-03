@@ -40,7 +40,6 @@ namespace Interaction
 
         public void StartInteraction()
         {
-            Debug.Log("start interaction with trash");
             interactionManager.HasSelectedItem(this);
         }
 

@@ -7,8 +7,12 @@ namespace Achieving
     public class AchievementManager : MonoBehaviour
     {
         public AchievementCreator achievementCreator;
-        public Transform gameCanvasTransform;
-        
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private readonly List<Achievement> _allAchievements = new()
         {
             new Achievement
@@ -31,6 +35,7 @@ namespace Achieving
         {
             var achieved =
                 _allAchievements.FirstOrDefault(achievement => achievement.AchievementType == achievementType);
+
             if(achieved == null) return;
             
             achieved.Achieved = true;
@@ -40,8 +45,9 @@ namespace Achieving
 
         private void ShowAchievement(Achievement achievement)
         {
-            if(achievement.Achieved) return;
-            achievementCreator.Create(achievement, gameCanvasTransform);
+            if(!achievement.Achieved) return;
+            var gameCanvas = GameObject.FindWithTag("GameCanvas");
+            achievementCreator.Create(achievement, gameCanvas.transform);
         }
 
         public List<Achievement> CompleteAchievements()

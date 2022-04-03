@@ -13,7 +13,7 @@ namespace Achieving
         {
             var achievementGameObject = Instantiate(achievementPrefab, parentTransform, true);
             achievementGameObject.name = achievement.AchievementType.ToString();
-            achievementGameObject.transform.position = new Vector3(0, 0, 0); //TODO position right down
+            achievementGameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-125, 75, 0);
 
             achievementGameObject.GetComponent<AchievementMono>().sprite.GetComponent<Image>().sprite = sprites[(int) achievement.AchievementType];
             achievementGameObject.GetComponent<AchievementMono>().title.GetComponent<TextMeshPro>().text = achievement.Title;
