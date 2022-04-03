@@ -28,7 +28,7 @@ namespace Interaction
 
             if (InteractingWith(origintype, targetType, ItemType.Apple, ItemType.Knife))
             {
-                //TODO create
+                Mediator.CreateItemInWorld(ItemType.AppleSlice);
                 Mediator.RemoveItemFromInventory(origintype);
                 Mediator.RemoveItemFromInventory(targetType);
 
@@ -46,7 +46,7 @@ namespace Interaction
         {
             if (_firstSelectedGO == null)
             {
-                var myCanvas = FindObjectOfType<InventoryPanelManager>().gameObject;
+                var myCanvas = FindObjectOfType<InventoryPanelManager>().InventoryPanel;
                 _firstSelectedGO = Instantiate(hoverPrefab, myCanvas.transform, true);
                 _firstSelectedGO.transform.position = myCanvas.transform.position;
                 _firstSelectedItem = Mediator.FirstInventoryItem(itemType);

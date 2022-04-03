@@ -41,12 +41,12 @@ namespace RoomScene
             _inventoryManager.Mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = _inventoryCreator;
-            var inventoryPanel = GameObject.FindWithTag("InventoryPanel");
-            _inventoryManager.inventoryCanvasTransform = inventoryPanel.transform;
+            var inventoryPanel = FindObjectOfType<InventoryPanelManager>();
+            _inventoryManager.inventoryCanvasTransform = inventoryPanel.InventoryPanel.transform;
 
             _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
             _inventoryKeyManager.Mediator = this;
-            _inventoryKeyManager.inventoryCanvas = inventoryPanel;
+            _inventoryKeyManager.inventoryCanvas = inventoryPanel.InventoryPanel;
 
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
 
@@ -80,6 +80,7 @@ namespace RoomScene
 
         public void CollectItem(WorldItemMono worldItemMono)
         {
+            _playerStateManager.Reset();
             _inventoryManager.Collect(worldItemMono.MapTo());
             _worldItemManager.CollectFromWorld(worldItemMono);
             
@@ -88,6 +89,7 @@ namespace RoomScene
 
         public void DropItemBackToWorld(int id, ItemType itemType)
         {
+            _playerStateManager.Reset();
             _worldItemManager.DropIntoWorld(id, itemType);
             _inventoryKeyManager.ShowInventory(false);
             
@@ -114,6 +116,8 @@ namespace RoomScene
 
         public void StartInteraction(ItemType itemType)
         {
+            _playerStateManager.Reset();
+            
             _interactionManager.Interact(itemType);
             
             // _playerStateManager.StartInteraction();
@@ -131,6 +135,7 @@ namespace RoomScene
 
         public void SceneSwitchFromDoor(DoorMono doorItem)
         {
+            _playerStateManager.Reset();
             doorItem.GoTo();
             SceneManager.sceneLoaded += (scene, mode) => InitCurrentScene(doorItem.enteredRoomPosition);
         }
