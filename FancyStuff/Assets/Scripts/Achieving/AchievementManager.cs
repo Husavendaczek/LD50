@@ -59,6 +59,8 @@ namespace Achieving
 
             if(achieved == null) return;
             
+            if(achieved.Achieved) return;
+            
             achieved.Achieved = true;
 
             ShowAchievement(achieved);
