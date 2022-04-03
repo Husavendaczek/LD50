@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 118178958}
   - component: {fileID: 1690298335}
   - component: {fileID: 1690298334}
+  - component: {fileID: 103982832}
   m_Layer: 0
   m_Name: WorldMediator
   m_TagString: WorldMediator
@@ -152,3 +153,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6c5dba390864d9f47bafc99ad2af3835, type: 3}
   - {fileID: 21300000, guid: 6c5dba390864d9f47bafc99ad2af3835, type: 3}
   - {fileID: 21300000, guid: eedf31d9255a8064b8a41fb65f69d68b, type: 3}
+--- !u!114 &103982832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348033400254140222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc2d37422324ec9b23270bbab4f28e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0

@@ -158,11 +158,19 @@ namespace RoomScene
         public void ShouldMove(bool move)
         {
             _playerMover.ShouldMove(move);
+            if (move)
+            {
+                _interactionManager.DeleteFirst();
+            }
         }
 
         public void ShowInventory(bool show)
         {
             _inventoryKeyManager.ShowInventory(show);
+            if (!show)
+            {
+                _interactionManager.DeleteFirst();
+            }
         }
 
         public void SceneSwitchFromDoor(DoorMono doorItem)

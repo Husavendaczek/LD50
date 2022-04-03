@@ -64,7 +64,7 @@ namespace World
                 new()
                 {
                     Id = 0,
-                    Position = new Vector3(8,0,0),
+                    Position = new Vector3(-8,0,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },

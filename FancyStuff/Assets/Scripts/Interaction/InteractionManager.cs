@@ -44,11 +44,11 @@ namespace Interaction
 
             if (InteractingWith(origintype, targetType, ItemType.Apple, ItemType.Knife))
             {
+                DeleteFirst();
+                
                 Mediator.CreateItemInWorld(ItemType.AppleSlice);
                 Mediator.RemoveItemFromInventory(origintype);
                 Mediator.RemoveItemFromInventory(targetType);
-
-                DeleteFirst();
             }
         }
         
@@ -72,9 +72,12 @@ namespace Interaction
             _firstSelectedGO.GetComponent<Image>().sprite = itemIcons.icons[(int) itemType];
         }
         
-        private void DeleteFirst()
+        public void DeleteFirst()
         {
-            Destroy(_firstSelectedGO);
+            if (_firstSelectedGO != null)
+            {
+                Destroy(_firstSelectedGO.gameObject);
+            }
             _firstSelectedItem = null;
         }
 
@@ -82,6 +85,7 @@ namespace Interaction
         {
             if (_firstSelectedItem == null)
             {
+                DeleteFirst();
                 interactable.ShowContextMenu();
                 return;
             }
