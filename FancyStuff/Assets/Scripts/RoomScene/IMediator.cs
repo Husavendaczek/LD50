@@ -40,5 +40,6 @@ namespace RoomScene
 
         void HideMessage();
         void SetScore(int score);
+        void StartRemove(InventoryItem item);
     }
 }

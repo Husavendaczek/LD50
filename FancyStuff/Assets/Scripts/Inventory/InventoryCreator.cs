@@ -21,6 +21,7 @@ namespace Inventory
             var parentPosition = inventoryTransform.position;
             inventoryItemSlotGameObject.transform.position = parentPosition;
             inventoryItemSlotGameObject.name = worldItem.ItemType + "Slot";
+            inventoryItemSlotGameObject.tag = "InventoryItemSlot";
 
             var itemTypeValue = (int) worldItem.ItemType;
 

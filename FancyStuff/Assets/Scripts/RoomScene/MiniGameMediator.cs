@@ -127,5 +127,10 @@ namespace RoomScene
         {
             _scoreManager.SetScore(score);
         }
+
+        public void StartRemove(InventoryItem item)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

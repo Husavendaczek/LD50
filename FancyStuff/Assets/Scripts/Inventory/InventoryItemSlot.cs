@@ -15,11 +15,13 @@ namespace Inventory
 
         public void Interact()
         {
+            Debug.Log("interact!!!!");
             interact();
         }
 
         public void Remove()
         {
+            Debug.Log("remove!!!!");
             remove();
         }
     }

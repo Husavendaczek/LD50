@@ -19,6 +19,7 @@ namespace RoomScene
         private GameStateLoader _gameStateLoader;
         
         private InventoryCreator _inventoryCreator;
+        private InventoryPanelManager _inventoryPanel;
         private InventoryManager _inventoryManager;
         private InventoryKeyManager _inventoryKeyManager;
 
@@ -57,16 +58,17 @@ namespace RoomScene
             _inventoryCreator = FindObjectOfType<InventoryCreator>();
             _inventoryCreator.ItemIcons = _itemIcons;
             
+            _inventoryPanel = FindObjectOfType<InventoryPanelManager>();
+            
             _inventoryManager = FindObjectOfType<InventoryManager>();
             _inventoryManager.Mediator = this;
             _inventoryManager.inventoryStore = FindObjectOfType<InventoryStore>();
             _inventoryManager.inventoryCreator = _inventoryCreator;
-            var inventoryPanel = FindObjectOfType<InventoryPanelManager>();
-            _inventoryManager.inventoryCanvasTransform = inventoryPanel.InventoryPanel.transform;
+            _inventoryManager.inventoryCanvasTransform = _inventoryPanel.InventoryPanel.transform;
 
             _inventoryKeyManager = FindObjectOfType<InventoryKeyManager>();
             _inventoryKeyManager.Mediator = this;
-            _inventoryKeyManager.inventoryCanvas = inventoryPanel.InventoryPanel;
+            _inventoryKeyManager.inventoryCanvas = _inventoryPanel.InventoryPanel;
 
             _worldItemsOfSceneLoader = FindObjectOfType<WorldItemsOfSceneLoader>();
 
@@ -232,13 +234,17 @@ namespace RoomScene
             _scoreManager.SetScore(score);
         }
 
+        public void StartRemove(InventoryItem item)
+        {
+            _inventoryManager.MoveItemFromInventoryToWorld(item);
+        }
+
         public void InitCurrentScene()
         {
             _worldItemsOfSceneLoader.InitCurrentScene();
             _worldItemManager.InitWorldItems();
             _doorManager.InitDoors();
             _interactableObjectManager.InitInteractables();
-            _inventoryManager.SetInventoryActions();
         }
     }
 }
