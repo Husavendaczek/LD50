@@ -722,6 +722,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
+      propertyPath: sprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+    - target: {fileID: 1690298334, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
     - target: {fileID: 3348033400254140216, guid: 777661249bdcd9d47a047190fd8ad996, type: 3}
       propertyPath: m_RootOrder
       value: 7

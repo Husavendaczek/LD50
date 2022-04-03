@@ -39,6 +39,7 @@ namespace Inventory
 
         public void MoveItemFromInventoryToWorld(InventoryItem inventoryItem)
         {
+            Debug.Log("Remove " + inventoryItem.ItemType + " from inventory");
             Mediator.DropItemBackToWorld(inventoryItem.ID, inventoryItem.ItemType);
 
             var inventorySlotItem = inventoryStore.GetStoredInventorySlotById(inventoryItem.ID);

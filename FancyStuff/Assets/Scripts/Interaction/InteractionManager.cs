@@ -29,6 +29,7 @@ namespace Interaction
 
         public void Interact(ItemType targetType)
         {
+            Debug.Log("Real interaction");
             if (_firstSelectedItem == null)
             {
                 CreateDragUIItem(targetType);

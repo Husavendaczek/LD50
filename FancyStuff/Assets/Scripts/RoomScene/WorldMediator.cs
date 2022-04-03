@@ -133,6 +133,7 @@ namespace RoomScene
 
         public void StartInteraction(ItemType itemType)
         {
+            Debug.Log("Start interaction " + itemType + " from inventory");
             _playerStateManager.Reset();
             
             _interactionManager.Interact(itemType);

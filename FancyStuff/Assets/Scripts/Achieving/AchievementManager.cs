@@ -35,6 +35,13 @@ namespace Achieving
                 Title = "Cat Dresser",
                 Message = "I don't  know if the cat likes it",
                 Achieved = false
+            },
+            new Achievement
+            {
+                AchievementType = AchievementType.GrandmaKiller,
+                Title = "Grandma Killer",
+                Message = "You really give a sh**",
+                Achieved = false
             }
         };
 

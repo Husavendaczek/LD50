@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Achieving
 {
@@ -15,9 +14,10 @@ namespace Achieving
             achievementGameObject.name = achievement.AchievementType.ToString();
             achievementGameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-125, 75, 0);
 
-            achievementGameObject.GetComponent<AchievementMono>().sprite.GetComponent<Image>().sprite = sprites[(int) achievement.AchievementType];
-            achievementGameObject.GetComponent<AchievementMono>().title.GetComponent<TextMeshPro>().text = achievement.Title;
-            achievementGameObject.GetComponent<AchievementMono>().message.GetComponent<TextMeshPro>().text = achievement.Message;
+            // TODO add image for achievement
+            // achievementGameObject.GetComponent<AchievementMono>().sprite.GetComponent<Image>().sprite = sprites[(int) achievement.AchievementType];
+            achievementGameObject.GetComponent<AchievementMono>().title.GetComponent<TextMeshProUGUI>().text = achievement.Title;
+            achievementGameObject.GetComponent<AchievementMono>().message.GetComponent<TextMeshProUGUI>().text = achievement.Message;
         }
     }
 }
