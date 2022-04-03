@@ -4,13 +4,15 @@ namespace Interaction.Doors
 {
     public class DoorCreator : MonoBehaviour
     {
-        public GameObject DoorPrefab;
+        public GameObject doorPrefab;
         public Sprite doorSprite;
 
-        public void Create(Door door, Transform transform)
+        public void Create(Door door, Transform parentTransform)
         {
-            var doorGameObject = Instantiate(DoorPrefab, transform, true);
+            var doorGameObject = Instantiate(doorPrefab, parentTransform, true);
+            doorGameObject.name = door.DoorName;
             doorGameObject.transform.position = door.Position;
+            doorGameObject.tag = "Door";
 
             doorGameObject.GetComponent<SpriteRenderer>().sprite = doorSprite;
             doorGameObject.GetComponent<DoorMono>().enteredRoomPosition = door.EnteredRoomPosition;

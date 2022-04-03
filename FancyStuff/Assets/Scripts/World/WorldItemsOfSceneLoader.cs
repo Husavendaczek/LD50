@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Interaction.Doors;
@@ -12,12 +13,21 @@ namespace World
         private WorldItemStore _worldItemStore;
         private SceneRoom _currentScene;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Start()
         {
+            SceneManager.sceneLoaded += (scene, mode) => InitCurrentScene();
+            
+            if (_currentScene != null) return;
+            
             InitCurrentScene();
         }
 
-        private void InitCurrentScene()
+        public void InitCurrentScene()
         {
             var currentSceneName = SceneManager.GetActiveScene().name;
             _worldItemStore = FindObjectOfType<WorldItemStore>();
@@ -42,6 +52,8 @@ namespace World
             {
                 _currentScene = _worldItemStore.StartScene;
             }
+            
+            Debug.Log("Current Scene is " + _currentScene.SceneName);
 
             SetBackgroundOfScene();
         }

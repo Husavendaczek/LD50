@@ -6,6 +6,7 @@ using ItemProperty;
 using Movement;
 using States;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using World;
 
 namespace RoomScene
@@ -126,6 +127,25 @@ namespace RoomScene
         public void ShowInventory(bool show)
         {
             _inventoryKeyManager.ShowInventory(show);
+        }
+
+        public void SceneSwitchFromDoor(DoorMono doorItem)
+        {
+            doorItem.GoTo();
+            SceneManager.sceneLoaded += (scene, mode) => InitCurrentScene(doorItem.enteredRoomPosition);
+        }
+
+        private void InitCurrentScene(Vector3 position)
+        {
+            _worldItemsOfSceneLoader.InitCurrentScene();
+            _worldItemManager.InitWorldItems();
+            _doorManager.InitDoors();
+            _playerMover.ResetPlayerPosition(position);
+        }
+
+        private void RemoveItemsFromOtherScenes()
+        {
+            
         }
     }
 }

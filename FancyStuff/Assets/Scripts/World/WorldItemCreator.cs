@@ -18,6 +18,7 @@ namespace World
             worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
             
             worldItemGameObject.name = worldItem.ItemType + worldItem.Id.ToString();
+            worldItemGameObject.tag = "WorldItem";
 
             worldItemGameObject.GetComponent<SpriteRenderer>().sprite = itemIcons.icons[(int) worldItem.ItemType];
             
@@ -37,6 +38,7 @@ namespace World
             worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
             
             worldItemGameObject.name = itemType + id.ToString();
+            worldItemGameObject.tag = "WorldItem";
 
             worldItemGameObject.GetComponent<SpriteRenderer>().sprite = itemIcons.icons[(int) itemType];
             

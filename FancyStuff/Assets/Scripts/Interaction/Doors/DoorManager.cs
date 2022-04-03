@@ -9,11 +9,16 @@ namespace Interaction.Doors
         public DoorCreator doorCreator;
         private void Start()
         {
+            InitDoors();
+        }
+
+        public void InitDoors()
+        {
             var doors = worldItemsOfSceneLoader.DoorsForCurrentScene();
 
             foreach (var door in doors)
             {
-                doorCreator.Create(door, transform); //TODO set transform
+                doorCreator.Create(door, transform);
             }
         }
     }

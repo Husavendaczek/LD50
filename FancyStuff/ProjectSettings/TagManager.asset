@@ -6,6 +6,8 @@ TagManager:
   tags:
   - InventoryPanel
   - Background
+  - Door
+  - WorldItem
   layers:
   - Default
   - TransparentFX

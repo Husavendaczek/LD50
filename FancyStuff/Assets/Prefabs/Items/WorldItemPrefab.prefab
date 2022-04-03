@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5347314822048936427}
   m_Layer: 31
   m_Name: WorldItemPrefab
-  m_TagString: Untagged
+  m_TagString: WorldItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.44, y: 0.42}
+    oldSize: {x: 1.32, y: 1.26}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

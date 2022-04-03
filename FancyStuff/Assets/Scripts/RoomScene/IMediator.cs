@@ -1,3 +1,4 @@
+using Interaction.Doors;
 using Inventory;
 using World;
 
@@ -22,5 +23,7 @@ namespace RoomScene
         void PauseMovement(bool pause);
 
         void ShowInventory(bool show);
+        
+        void SceneSwitchFromDoor(DoorMono doorItem);
     }
 }

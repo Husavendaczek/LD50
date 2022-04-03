@@ -1,3 +1,4 @@
+using Interaction.Doors;
 using Inventory;
 using ItemProperty;
 using UnityEngine;
@@ -61,6 +62,11 @@ namespace RoomScene
         public void ShowInventory(bool show)
         {
             
+        }
+
+        public void SceneSwitchFromDoor(DoorMono doorItem)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

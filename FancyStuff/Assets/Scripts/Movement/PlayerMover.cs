@@ -43,18 +43,18 @@ namespace Movement
             if (Mathf.Abs(player.transform.position.x - _target.x) <= 1f && Mathf.Abs(player.transform.position.y - _target.y) <= 1f)
             {
                 Debug.Log("reached target");
-                Debug.Log("world item is" + _worldItem);
                 playerStateManager.Reset();
 
                 if (_door != null)
                 {
+                    Debug.Log("door is" + _door);
                     var doorItem = _door.GetComponent<DoorMono>();
-                    doorItem.GoTo();
-                    player.transform.position = doorItem.enteredRoomPosition;
-                    doorItem = null;
+                    Mediator.SceneSwitchFromDoor(doorItem);
+                    return;
                 }
                 
                 if (_worldItem == null) return;
+                Debug.Log("world item is" + _worldItem);
                 var item = _worldItem.GetComponent<WorldItemMono>();
                 Mediator.CollectItem(item);
                 _worldItem = null;
@@ -98,6 +98,12 @@ namespace Movement
                 _worldItem = null;
                 _door = null;
             }
+        }
+
+        public void ResetPlayerPosition(Vector3 position)
+        {
+            _door = null;
+            player.transform.position = position;
         }
     }
 }

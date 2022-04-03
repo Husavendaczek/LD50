@@ -16,6 +16,11 @@ namespace World
 
         private void Start()
         {
+            InitWorldItems();
+        }
+
+        public void InitWorldItems()
+        {
             var worldItemsForScene = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
 
             foreach (var worldItem in worldItemsForScene)

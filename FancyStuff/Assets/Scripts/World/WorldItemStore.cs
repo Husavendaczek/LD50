@@ -25,7 +25,7 @@ namespace World
             {
                 new()
                 {
-                    DoorName = "StevensRoomDoor",
+                    DoorName = "StevesRoomDoor",
                     Position = new Vector3(8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToKitchen
@@ -36,7 +36,7 @@ namespace World
                 new()
                 {
                     Id = 0,
-                    Position = new Vector3(0,0,0),
+                    Position = new Vector3(8,0,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },
@@ -50,7 +50,7 @@ namespace World
                 new()
                 {
                     Id = 6,
-                    Position = new Vector3(1,1,0),
+                    Position = new Vector3(7,1,0),
                     ItemType = ItemType.CatFood,
                     Collected = false
                 },
@@ -65,7 +65,7 @@ namespace World
             {
                 new()
                 {
-                    DoorName = "KitchenToStevensRoomDoor",
+                    DoorName = "KitchenToStevesRoomDoor",
                     Position = new Vector3(-8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToStevesRoom
@@ -90,14 +90,14 @@ namespace World
                 new()
                 {
                     Id = 2,
-                    Position = new Vector3(0,0,0),
+                    Position = new Vector3(2,0,0),
                     ItemType = ItemType.CatFood,
                     Collected = false
                 },
                 new()
                 {
                     Id = 2,
-                    Position = new Vector3(0,1,0),
+                    Position = new Vector3(0,1.6f,0),
                     ItemType = ItemType.Knife,
                     Collected = false
                 }
@@ -123,7 +123,7 @@ namespace World
                 new()
                 {
                     Id = 2,
-                    Position = new Vector3(0,0,0),
+                    Position = new Vector3(-4,0,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 }
@@ -149,7 +149,7 @@ namespace World
                 new()
                 {
                     Id = 2,
-                    Position = new Vector3(0,0,0),
+                    Position = new Vector3(-4,1,0),
                     ItemType = ItemType.Apple,
                     Collected = false
                 }
