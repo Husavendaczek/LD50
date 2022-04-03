@@ -56,14 +56,17 @@ namespace Interaction
             {
                 _mediator.RemoveAndHideInventory(item);
                 _mediator.ShowAchievement(AchievementType.CleanedStevesRoom);
+                _mediator.SetScore(5);
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Steven! Are you hiding food?"});
+                _mediator.SetScore(-5);
             }
             else
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Don't put it in the closet!"});
+                _mediator.SetScore(-1);
             }
         }
     }

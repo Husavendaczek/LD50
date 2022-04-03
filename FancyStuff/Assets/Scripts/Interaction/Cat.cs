@@ -56,10 +56,12 @@ namespace Interaction
             if (_interactableType.Contains(item.ItemType))
             {
                 _mediator.RemoveAndHideInventory(item);
+                _mediator.SetScore(5);
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
                 _mediator.ShowAchievement(AchievementType.CatDresser);
+                _mediator.SetScore(-5);
             }
             else if (item.ItemType == ItemType.Knife)
             {
@@ -71,6 +73,7 @@ namespace Interaction
             else
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage { MessageText = "Meow! Meow!"});
+                _mediator.SetScore(-2);
             }
         }
     }

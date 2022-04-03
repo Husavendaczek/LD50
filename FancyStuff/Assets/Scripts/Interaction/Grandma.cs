@@ -58,6 +58,7 @@ namespace Interaction
                 if (item.ItemType == ItemType.AppleSlice)
                 {
                     _mediator.RemoveAndHideInventory(item);
+                    _mediator.SetScore(30);
                     return;
                 }
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "You should slice them!"});
@@ -72,6 +73,7 @@ namespace Interaction
             else
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What should I do with that?"});
+                _mediator.SetScore(-2);
             }
         }
     }
