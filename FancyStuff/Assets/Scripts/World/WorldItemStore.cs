@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Interaction;
 using Interaction.Doors;
-using Inventory;
 using ItemProperty;
 using RoomScene;
 using UnityEngine;
@@ -31,6 +31,14 @@ namespace World
                     Position = new Vector3(8.38f, -1.15f, 0),
                     EnteredRoomPosition = new Vector3(-6.38f, -1.15f, 0),
                     GoToRoom = SceneLoader.GoToKitchen
+                }
+            },
+            InteractableObjs = new List<InteractableObj>
+            {
+                new()
+                {
+                    InteractableObjType = InteractableObjType.Trash,
+                    Position = new Vector3(3, -1.15f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
@@ -87,6 +95,14 @@ namespace World
                     GoToRoom = SceneLoader.GoToLivingRoom
                 }
             },
+            InteractableObjs = new List<InteractableObj>
+            {
+                new()
+                {
+                    InteractableObjType = InteractableObjType.Cat,
+                    Position = new Vector3(3, -1.15f, 0)
+                }
+            },
             WorldItems = new List<WorldItem>
             {
                 new()
@@ -120,6 +136,14 @@ namespace World
                     GoToRoom = SceneLoader.GoToKitchen
                 }
             },
+            InteractableObjs = new List<InteractableObj>
+            {
+                new()
+                {
+                    InteractableObjType = InteractableObjType.Grandma,
+                    Position = new Vector3(3, -1.15f, 0)
+                }
+            },
             WorldItems = new List<WorldItem>
             {
                 new()
@@ -146,6 +170,7 @@ namespace World
                     GoToRoom = SceneLoader.GoToKitchen
                 }
             },
+            InteractableObjs = new List<InteractableObj>(),
             WorldItems = new List<WorldItem>
             {
                 new()
@@ -230,6 +255,36 @@ namespace World
                 if (!hasWorldItem.Any())
                 {
                     Destroy(viewableWorldItem.gameObject);
+                }
+            }
+        }
+
+        public void DestroyOldInteractables(SceneRoom scene)
+        {
+            if (scene == null)
+            {
+                return;
+            }
+
+            if (!scene.WorldItems.Any())
+            {
+                return;
+            }
+
+            var existingInteractables =
+                AllSceneRooms().FirstOrDefault(sceneRoom => sceneRoom.SceneName == scene.SceneName)!.InteractableObjs;
+
+            var allViewableInteractables = GameObject.FindGameObjectsWithTag("Interactable");
+
+            foreach (var viewableInteractable in allViewableInteractables)
+            {
+                var currentInteractable = viewableInteractable.GetComponent<InteractableMono>();
+
+                var hasWorldItem = existingInteractables.Where(obj => obj.InteractableObjType == currentInteractable.interactableObjType);
+
+                if (!hasWorldItem.Any())
+                {
+                    Destroy(viewableInteractable.gameObject);
                 }
             }
         }

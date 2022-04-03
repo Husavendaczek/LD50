@@ -27,6 +27,8 @@ namespace RoomScene
 
         private DoorCreator _doorCreator;
         private DoorManager _doorManager;
+
+        private InteractableObjectManager _interactableObjectManager;
         
         private InteractionManager _interactionManager;
         private ItemIcons _itemIcons;
@@ -74,6 +76,13 @@ namespace RoomScene
             _doorManager = FindObjectOfType<DoorManager>();
             _doorManager.doorCreator = _doorCreator;
             _doorManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
+            
+            _interactableObjectManager = FindObjectOfType<InteractableObjectManager>();
+            _interactableObjectManager.worldItemsOfSceneLoader = _worldItemsOfSceneLoader;
+            
+            _achievementCreator = FindObjectOfType<AchievementCreator>();
+            _achievementManager = FindObjectOfType<AchievementManager>();
+            _achievementManager.achievementCreator = _achievementCreator;
 
             _interactionManager = FindObjectOfType<InteractionManager>();
             _interactionManager.Mediator = this;
@@ -83,10 +92,6 @@ namespace RoomScene
             _playerMover = FindObjectOfType<PlayerMover>();
             _playerMover.Mediator = this;
             _playerMover.playerStateManager = _playerStateManager;
-
-            _achievementCreator = FindObjectOfType<AchievementCreator>();
-            _achievementManager = FindObjectOfType<AchievementManager>();
-            _achievementManager.achievementCreator = _achievementCreator;
 
             _messageManager = FindObjectOfType<MessageManager>();
         }
@@ -210,6 +215,7 @@ namespace RoomScene
             _worldItemsOfSceneLoader.InitCurrentScene();
             _worldItemManager.InitWorldItems();
             _doorManager.InitDoors();
+            _interactableObjectManager.InitInteractables();
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Interaction;
 using Interaction.Doors;
 using RoomScene;
 using UnityEngine;
@@ -80,6 +81,18 @@ namespace World
             _worldItemStore.DestroyOldDoors(_currentScene);
 
             return _currentScene.ExistingDoors;
+        }
+        
+        public IEnumerable<InteractableObj> InteractablesForCurrentScene()
+        {
+            if (_currentScene == null)
+            {
+                InitCurrentScene();
+            }
+
+            _worldItemStore.DestroyOldInteractables(_currentScene);
+            
+            return _currentScene.InteractableObjs;
         }
 
         public bool ExistsInSceneRooms(int id)

@@ -15,7 +15,6 @@ namespace Interaction.Doors
 
         public void InitDoors()
         {
-            Debug.Log("init the doors");
             var doors = worldItemsOfSceneLoader.DoorsForCurrentScene();
 
             foreach (var door in doors)

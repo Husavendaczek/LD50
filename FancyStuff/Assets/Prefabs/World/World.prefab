@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 762245472093325693}
   - component: {fileID: 875652163}
   - component: {fileID: 875652162}
+  - component: {fileID: 2066523142}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -260,6 +261,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldItemsOfSceneLoader: {fileID: 0}
   doorCreator: {fileID: 0}
+--- !u!114 &2066523142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762245472093325692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd092e2f07434baca20c3802a7029cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldItemsOfSceneLoader: {fileID: 0}
+  interactablePrefab: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
+  - {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
 --- !u!1 &762245472462755637
 GameObject:
   m_ObjectHideFlags: 0

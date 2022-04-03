@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Achieving;
 using Inventory;
@@ -9,10 +8,10 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public class TrashCollector : MonoBehaviour, IInteractable
+    public class Closet : MonoBehaviour, IInteractable
     {
         private IMediator _mediator;
-        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.PaperTrash };
+        private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.Clothes };
         private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple, ItemType.CatFood };
 
         private void Start()
@@ -60,11 +59,11 @@ namespace Interaction
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
-                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Steven! Are you wasting food again?"});
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Steven! Are you hiding food?"});
             }
             else
             {
-                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Take that out of the trash!"});
+                _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Don't put it in the closet!"});
             }
         }
     }
