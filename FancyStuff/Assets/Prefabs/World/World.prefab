@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe351efc77ad4e4c9bc57ab155faea71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorPrefab: {fileID: 4205861511890759634, guid: 3bebbe69ed16bd54f8d05563cb4dd74d, type: 3}
+  doorPrefab: {fileID: 4205861511890759634, guid: 3bebbe69ed16bd54f8d05563cb4dd74d, type: 3}
   doorSprite: {fileID: 21300000, guid: ebb12c5b74b33264291c530b3ceda61a, type: 3}
 --- !u!114 &875652162
 MonoBehaviour:
@@ -284,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762245472462755637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.52, z: 2.05}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

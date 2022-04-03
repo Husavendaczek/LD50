@@ -7,7 +7,7 @@ namespace Interaction.Doors
         public GameObject doorPrefab;
         public Sprite doorSprite;
 
-        public void Create(Door door, Transform parentTransform)
+        public DoorMono Create(Door door, Transform parentTransform)
         {
             var doorGameObject = Instantiate(doorPrefab, parentTransform, true);
             doorGameObject.name = door.DoorName;
@@ -17,6 +17,8 @@ namespace Interaction.Doors
             doorGameObject.GetComponent<SpriteRenderer>().sprite = doorSprite;
             doorGameObject.GetComponent<DoorMono>().enteredRoomPosition = door.EnteredRoomPosition;
             doorGameObject.GetComponent<DoorMono>().GoToRoom = door.GoToRoom;
+            
+            return doorGameObject.GetComponent<DoorMono>();
         }
     }
 }

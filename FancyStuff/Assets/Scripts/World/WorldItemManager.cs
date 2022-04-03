@@ -21,6 +21,8 @@ namespace World
 
         public void InitWorldItems()
         {
+            ResetViewableWorldItems();
+            
             var worldItemsForScene = worldItemsOfSceneLoader.WorldItemsForCurrentScene();
 
             foreach (var worldItem in worldItemsForScene)
@@ -54,7 +56,6 @@ namespace World
             {
                 AddToWorldItems(id, itemType);
             }
-
         }
 
         public WorldItem AddToWorldItems(ItemType itemType)
@@ -66,7 +67,16 @@ namespace World
         {
             var worldItem = worldItemCreator.Create(id, itemType);
             worldItemsOfSceneLoader.AddToSceneRoom(worldItem.MapTo());
+            _currentViewableWorldItems.Add(worldItem);
             return worldItem.MapTo();
+        }
+
+        private void ResetViewableWorldItems()
+        {
+            foreach (var currentViewableWorldItem in _currentViewableWorldItems)
+            {
+                Destroy(currentViewableWorldItem.gameObject);
+            }
         }
     }
 }

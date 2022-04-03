@@ -91,7 +91,16 @@ namespace World
 
         public void AddToSceneRoom(WorldItem worldItem)
         {
+            //TODO check if items are really added?
             _currentScene.WorldItems.Add(worldItem);
+            
+            Debug.Log("world items of current scene are");
+            var myCollection = _worldItemStore.AllSceneRooms().FirstOrDefault(room => room.SceneName == _currentScene.SceneName);
+            var myWorldItems = myCollection.WorldItems;
+            foreach (var myItem in myWorldItems)
+            {
+                Debug.Log(myItem.ItemType + ", id: " + myItem.Id);
+            }
         }
 
         public void SetBackgroundOfScene()
