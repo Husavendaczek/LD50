@@ -69,7 +69,7 @@ namespace World
 
             return _currentScene.WorldItems.Where(worldItem => worldItem.Collected == false).ToList();
         }
-        
+
         public IEnumerable<Door> DoorsForCurrentScene()
         {
             if (_currentScene == null)

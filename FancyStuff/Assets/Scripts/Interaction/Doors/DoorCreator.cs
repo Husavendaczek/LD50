@@ -9,6 +9,9 @@ namespace Interaction.Doors
 
         public void Create(Door door, Transform parentTransform)
         {
+            var tmp = GameObject.Find(door.DoorName);
+            if(tmp != null) return;
+            
             var doorGameObject = Instantiate(doorPrefab, parentTransform, true);
             doorGameObject.name = door.DoorName;
             doorGameObject.transform.position = door.Position;

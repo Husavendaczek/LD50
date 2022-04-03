@@ -1,5 +1,3 @@
-using Helper;
-using Inventory;
 using ItemProperty;
 using UnityEngine;
 
@@ -11,8 +9,11 @@ namespace World
 
         public ItemIcons itemIcons;
 
-        public WorldItemMono Create(WorldItem worldItem)
+        public void Create(WorldItem worldItem)
         {
+            var tmp = GameObject.Find(worldItem.ItemType + worldItem.Id.ToString());
+            if(tmp != null) return;
+            
             var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
             worldItemGameObject.transform.position = worldItem.Position;
             worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
@@ -25,12 +26,13 @@ namespace World
             worldItemGameObject.GetComponent<WorldItemMono>().id = worldItem.Id;
             worldItemGameObject.GetComponent<WorldItemMono>().itemType = worldItem.ItemType;
             worldItemGameObject.GetComponent<WorldItemMono>().position = worldItem.Position;
-
-            return worldItemGameObject.GetComponent<WorldItemMono>();
         }
 
         public WorldItemMono Create(int id, ItemType itemType)
         {
+            var tmp = GameObject.Find(itemType + id.ToString());
+            if(tmp != null) return tmp.GetComponent<WorldItemMono>();
+            
             var position = new Vector3(0.0f, 0.1f, 0.0f);
             
             var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
