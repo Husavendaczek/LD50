@@ -57,6 +57,11 @@ namespace World
                 {
                     InteractableObjType = InteractableObjType.Trash,
                     Position = new Vector3(3, -1.15f, 0)
+                },
+                new()
+                {
+                    InteractableObjType = InteractableObjType.Closet,
+                    Position = new Vector3(-7, -1.15f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
