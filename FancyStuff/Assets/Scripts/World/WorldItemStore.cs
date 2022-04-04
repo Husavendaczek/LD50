@@ -56,12 +56,12 @@ namespace World
                 new()
                 {
                     InteractableObjType = InteractableObjType.Trash,
-                    Position = new Vector3(3, -1.15f, 0)
+                    Position = new Vector3(3, -1.27f, 0)
                 },
                 new()
                 {
                     InteractableObjType = InteractableObjType.Closet,
-                    Position = new Vector3(-7, -1.15f, 0)
+                    Position = new Vector3(-1.56f, -0.89f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
@@ -69,28 +69,28 @@ namespace World
                 new()
                 {
                     Id = 0,
-                    Position = new Vector3(-8,0,0),
+                    Position = new Vector3(-3.34f,-3,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },
                 new()
                 {
                     Id = 1,
-                    Position = new Vector3(1,1,0),
+                    Position = new Vector3(1.02f,-2.02f,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },
                 new()
                 {
                     Id = 1,
-                    Position = new Vector3(-2,2.1f,0),
+                    Position = new Vector3(3.08f,-2.96f,0),
                     ItemType = ItemType.Clothes,
                     Collected = false
                 },
                 new()
                 {
                     Id = 2,
-                    Position = new Vector3(6,1,0),
+                    Position = new Vector3(4.75f,-1.57f,0),
                     ItemType = ItemType.RottenBanana,
                     Collected = false
                 },
@@ -114,10 +114,10 @@ namespace World
                 new()
                 {
                     DoorName = "KitchenToGardenDoor",
-                    Position = new Vector3(-0.13f, -3.25f, 0),
-                    EnteredRoomPosition = new Vector3(-0.13f, 3.5f, 0),
+                    Position = new Vector3(-0.13f, 0.59f, 0),
+                    EnteredRoomPosition = new Vector3(-0.13f, 0.59f, 0),
                     GoToRoom = SceneLoader.GoToGarden,
-                    SpriteValue = 3
+                    SpriteValue = 1
                 },
                 new()
                 {
@@ -133,7 +133,7 @@ namespace World
                 new()
                 {
                     InteractableObjType = InteractableObjType.Cat,
-                    Position = new Vector3(3, -1.15f, 0)
+                    Position = new Vector3(3, -1.75f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
@@ -148,7 +148,7 @@ namespace World
                 new()
                 {
                     Id = 4,
-                    Position = new Vector3(0,1.6f,0),
+                    Position = new Vector3(-3.09f,-0.41f,0),
                     ItemType = ItemType.Knife,
                     Collected = false
                 }
@@ -175,7 +175,7 @@ namespace World
                 new()
                 {
                     InteractableObjType = InteractableObjType.Grandma,
-                    Position = new Vector3(3, -1.15f, 0)
+                    Position = new Vector3(-0.65f, -1.15f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
@@ -183,7 +183,7 @@ namespace World
                 new()
                 {
                     Id = 5,
-                    Position = new Vector3(-4,0,0),
+                    Position = new Vector3(7.33f,-3,0),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 }
@@ -199,10 +199,10 @@ namespace World
                 new()
                 {
                     DoorName = "GardenToKitchenDoor",
-                    Position = new Vector3(-0.13f, 5.28f, 0),
+                    Position = new Vector3(8.24f, -0.73f, 0),
                     EnteredRoomPosition = new Vector3(-0.13f, -1.25f, 0),
                     GoToRoom = SceneLoader.GoToKitchen,
-                    SpriteValue = 4
+                    SpriteValue = 1
                 }
             },
             InteractableObjs = new List<InteractableObj>(),
@@ -211,7 +211,28 @@ namespace World
                 new()
                 {
                     Id = 6,
-                    Position = new Vector3(-4,1,0),
+                    Position = new Vector3(-3.63f,-2.73f,0),
+                    ItemType = ItemType.Apple,
+                    Collected = false
+                },
+                new()
+                {
+                    Id = 7,
+                    Position = new Vector3(3.87f,-3.15f,0),
+                    ItemType = ItemType.Apple,
+                    Collected = false
+                },
+                new()
+                {
+                    Id = 8,
+                    Position = new Vector3(5.59f,-2.09f,0),
+                    ItemType = ItemType.Apple,
+                    Collected = false
+                },
+                new()
+                {
+                    Id = 9,
+                    Position = new Vector3(-7.39f,-1.67f,0),
                     ItemType = ItemType.Apple,
                     Collected = false
                 }
