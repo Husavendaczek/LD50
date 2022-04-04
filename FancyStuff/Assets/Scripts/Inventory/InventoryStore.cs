@@ -55,7 +55,7 @@ namespace Inventory
             
             storedInventoryItemPairForItemType.amount = newAmount;
             
-            storedInventoryItemPairForItemType.amountText.GetComponent<TextMeshProUGUI>().text = newAmount + "x " + itemType;
+            storedInventoryItemPairForItemType.amountText.GetComponent<TextMeshProUGUI>().text = newAmount + "x";
             
             return newAmount;
         }
