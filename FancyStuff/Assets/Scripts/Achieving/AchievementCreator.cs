@@ -19,8 +19,7 @@ namespace Achieving
             // achievementGameObject.GetComponent<AchievementMono>().sprite.GetComponent<Image>().sprite = sprites[(int) achievement.AchievementType];
             achievementGameObject.GetComponent<AchievementMono>().title.GetComponent<TextMeshProUGUI>().text = achievement.Title;
             achievementGameObject.GetComponent<AchievementMono>().message.GetComponent<TextMeshProUGUI>().text = achievement.Message;
-
-
+            
             StartCoroutine(ShowAchievement(achievementGameObject));
 
         }

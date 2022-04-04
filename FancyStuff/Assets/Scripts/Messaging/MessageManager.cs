@@ -14,11 +14,13 @@ namespace Messaging
 
         private void Update()
         {
+            if(simpleMessage == null) return;
+            
             if (!_isShowingSimpleMessage) return;
             
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                simpleMessageGameObject.SetActive(false);
+                simpleMessage.gameObject.SetActive(false);
             }
         }
 
@@ -49,11 +51,12 @@ namespace Messaging
 
         public void ShowSimpleMessage(SimpleMessage message)
         {
-            Debug.Log("print");
             if (simpleMessage == null)
             {
                 simpleMessage = Instantiate(simpleMessageGameObject, transform, true);
                 simpleMessage.name = "Messsage";
+                simpleMessage.GetComponent<RectTransform>().anchoredPosition = new Vector3(-125, 75, 0);
+                
             }
             
             simpleMessage.GetComponent<SimpleMessageMono>().textElement.GetComponent<TextMeshProUGUI>().text = message.MessageText;
@@ -64,8 +67,9 @@ namespace Messaging
 
         public void HideMessage()
         {
-            messageGameObject.SetActive(false);
-            simpleMessage.SetActive(false);
+            simpleMessage.gameObject.SetActive(false);
+            // messageGameObject.SetActive(false);
+            
             _isShowingSimpleMessage = false;
         }
     }
