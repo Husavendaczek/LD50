@@ -48,8 +48,9 @@ namespace Messaging
 
         public void ShowSimpleMessage(SimpleMessage message)
         {
-            simpleMessageGameObject.GetComponent<TextMeshProUGUI>().text = message.MessageText;
-            simpleMessageGameObject.SetActive(true);
+            var simpleMessage = Instantiate(simpleMessageGameObject, transform, true);
+            simpleMessage.name = "Messsage";
+            simpleMessage.GetComponent<SimpleMessageMono>().textElement.GetComponent<TextMeshProUGUI>().text = message.MessageText;
 
             _isShowingSimpleMessage = true;
         }
