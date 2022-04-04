@@ -9,6 +9,7 @@ namespace Messaging
         public GameObject messageGameObject;
         public GameObject simpleMessageGameObject;
 
+        private GameObject simpleMessage;
         private bool _isShowingSimpleMessage = false;
 
         private void Update()
@@ -48,9 +49,15 @@ namespace Messaging
 
         public void ShowSimpleMessage(SimpleMessage message)
         {
-            var simpleMessage = Instantiate(simpleMessageGameObject, transform, true);
-            simpleMessage.name = "Messsage";
+            Debug.Log("print");
+            if (simpleMessage == null)
+            {
+                simpleMessage = Instantiate(simpleMessageGameObject, transform, true);
+                simpleMessage.name = "Messsage";
+            }
+            
             simpleMessage.GetComponent<SimpleMessageMono>().textElement.GetComponent<TextMeshProUGUI>().text = message.MessageText;
+            simpleMessage.gameObject.SetActive(true);
 
             _isShowingSimpleMessage = true;
         }
@@ -58,7 +65,7 @@ namespace Messaging
         public void HideMessage()
         {
             messageGameObject.SetActive(false);
-            simpleMessageGameObject.SetActive(false);
+            simpleMessage.SetActive(false);
             _isShowingSimpleMessage = false;
         }
     }

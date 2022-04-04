@@ -17,7 +17,7 @@ namespace Interaction
 
         private void Start()
         {
-            _mediator = GameObject.FindWithTag("WorldMediator").GetComponent<WorldMediator>();
+            _mediator = FindObjectOfType<WorldMediator>();
         }
         
         private void OnMouseOver()
@@ -37,12 +37,12 @@ namespace Interaction
         
         public void ShowContextMenu()
         {
-            //TODO show context menu with speak
+            _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "I want to bake apple cake. Bring me some apples, please."});
         }
 
         public void ShowText()
         {
-            //TODO show message
+            _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "I want to bake apple cake. Bring me some apples, please."});
         }
 
         public void StartInteraction()

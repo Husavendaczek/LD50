@@ -17,7 +17,7 @@ namespace Interaction
 
         private void Start()
         {
-            _mediator = GameObject.FindWithTag("WorldMediator").GetComponent<WorldMediator>();
+            _mediator = FindObjectOfType<WorldMediator>();
         }
 
         private void OnMouseOver()
@@ -37,7 +37,7 @@ namespace Interaction
         
         public void ShowContextMenu()
         {
-            //TODO show context menu with lupe
+            _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Go, clean your room!"});
         }
 
         public void ShowText()
