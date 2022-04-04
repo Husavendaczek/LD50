@@ -59,6 +59,7 @@ namespace Interaction
                 {
                     _mediator.RemoveAndHideInventory(item);
                     _mediator.SetScore(30);
+                    _mediator.ShowEnd();
                     return;
                 }
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "You should slice them!"});
