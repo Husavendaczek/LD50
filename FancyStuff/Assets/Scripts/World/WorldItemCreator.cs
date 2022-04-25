@@ -16,7 +16,8 @@ namespace World
             
             var worldItemGameObject = Instantiate(worldItemPrefab, this.transform, true);
             worldItemGameObject.transform.position = worldItem.Position;
-            worldItemGameObject.transform.localScale = new Vector3(1f, 1f, 1);
+            Debug.Log("my scale is " + worldItem.ScaleSize);
+            worldItemGameObject.transform.localScale = worldItem.ScaleSize;
             
             worldItemGameObject.name = worldItem.ItemType + worldItem.Id.ToString();
             worldItemGameObject.tag = "WorldItem";

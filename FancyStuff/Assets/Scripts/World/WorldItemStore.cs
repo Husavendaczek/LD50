@@ -70,6 +70,7 @@ namespace World
                 {
                     Id = 0,
                     Position = new Vector3(-3.34f,-3,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },
@@ -77,6 +78,7 @@ namespace World
                 {
                     Id = 1,
                     Position = new Vector3(1.02f,-2.02f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 },
@@ -84,6 +86,7 @@ namespace World
                 {
                     Id = 1,
                     Position = new Vector3(3.08f,-2.96f,0),
+                    ScaleSize = new Vector3(1f, 1f, 1),
                     ItemType = ItemType.Clothes,
                     Collected = false
                 },
@@ -91,6 +94,7 @@ namespace World
                 {
                     Id = 2,
                     Position = new Vector3(4.75f,-1.57f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.RottenBanana,
                     Collected = false
                 },
@@ -142,6 +146,7 @@ namespace World
                 {
                     Id = 3,
                     Position = new Vector3(2,0,0),
+                    ScaleSize = new Vector3(1f, 1f, 1),
                     ItemType = ItemType.CatFood,
                     Collected = false
                 },
@@ -149,6 +154,7 @@ namespace World
                 {
                     Id = 4,
                     Position = new Vector3(-3.09f,-0.41f,0),
+                    ScaleSize = new Vector3(0.8f, 0.8f, 1),
                     ItemType = ItemType.Knife,
                     Collected = false
                 }
@@ -184,6 +190,7 @@ namespace World
                 {
                     Id = 5,
                     Position = new Vector3(7.33f,-3,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.PaperTrash,
                     Collected = false
                 }
@@ -212,6 +219,7 @@ namespace World
                 {
                     Id = 6,
                     Position = new Vector3(-3.63f,-2.73f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.Apple,
                     Collected = false
                 },
@@ -219,6 +227,7 @@ namespace World
                 {
                     Id = 7,
                     Position = new Vector3(3.87f,-3.15f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.Apple,
                     Collected = false
                 },
@@ -226,6 +235,7 @@ namespace World
                 {
                     Id = 8,
                     Position = new Vector3(5.59f,-2.09f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.Apple,
                     Collected = false
                 },
@@ -233,6 +243,7 @@ namespace World
                 {
                     Id = 9,
                     Position = new Vector3(-7.39f,-1.67f,0),
+                    ScaleSize = new Vector3(0.5f, 0.5f, 1),
                     ItemType = ItemType.Apple,
                     Collected = false
                 }

@@ -114,7 +114,6 @@ namespace World
 
         public void AddToSceneRoom(WorldItem worldItem)
         {
-            //TODO check if items are really added?
             _currentScene.WorldItems.Add(worldItem);
             
             var myCollection = _worldItemStore.AllSceneRooms().FirstOrDefault(room => room.SceneName == _currentScene.SceneName);

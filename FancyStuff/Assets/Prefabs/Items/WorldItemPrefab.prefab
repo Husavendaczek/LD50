@@ -101,6 +101,7 @@ MonoBehaviour:
   id: 0
   itemType: 0
   position: {x: 0, y: 0, z: 0}
+  scaleSize: {x: 1, y: 1, z: 1}
 --- !u!61 &5347314822048936427
 BoxCollider2D:
   m_ObjectHideFlags: 0

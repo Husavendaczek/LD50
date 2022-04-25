@@ -1,4 +1,3 @@
-using Inventory;
 using ItemProperty;
 using UnityEngine;
 
@@ -9,5 +8,6 @@ namespace World
         public int id;
         public ItemType itemType;
         public Vector3 position;
+        public Vector3 scaleSize;
     }
 }

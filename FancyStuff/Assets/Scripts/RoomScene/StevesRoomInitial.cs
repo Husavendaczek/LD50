@@ -6,7 +6,6 @@ namespace RoomScene
     {
         private void Start()
         {
-            Debug.Log("should only be called once");
             var mediator = FindObjectOfType<WorldMediator>();
             mediator.ShouldMove(true);
             mediator.InitCurrentScene();
