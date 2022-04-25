@@ -137,7 +137,7 @@ namespace World
                 new()
                 {
                     InteractableObjType = InteractableObjType.Cat,
-                    Position = new Vector3(3, -1.75f, 0)
+                    Position = new Vector3(2.24f, -1.75f, 0)
                 }
             },
             WorldItems = new List<WorldItem>
@@ -145,7 +145,7 @@ namespace World
                 new()
                 {
                     Id = 3,
-                    Position = new Vector3(2,0,0),
+                    Position = new Vector3(5.39f,0,0),
                     ScaleSize = new Vector3(1f, 1f, 1),
                     ItemType = ItemType.CatFood,
                     Collected = false
