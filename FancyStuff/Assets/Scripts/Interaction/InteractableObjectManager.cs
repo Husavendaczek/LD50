@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using World;
 
 namespace Interaction
@@ -7,9 +8,11 @@ namespace Interaction
     public class InteractableObjectManager : MonoBehaviour
     {
         public WorldItemsOfSceneLoader worldItemsOfSceneLoader;
-        
+
         public GameObject interactablePrefab;
-        public Sprite[] sprites;
+        public Sprite[] normalSprites;
+        public Sprite[] positiveOutcomes;
+        public Sprite[] negativeOutcomes;
 
         private void Awake()
         {
@@ -37,21 +40,36 @@ namespace Interaction
             interactableObject.tag = "Interactable";
 
             interactableObject.GetComponent<InteractableMono>().interactableObjType = interactable.InteractableObjType;
-            interactableObject.GetComponent<SpriteRenderer>().sprite = sprites[(int) interactable.InteractableObjType];
+            interactableObject.GetComponent<SpriteRenderer>().sprite = normalSprites[(int) interactable.InteractableObjType];
+            
+            //TODO set sprite according to interactable state
 
             switch (interactable.InteractableObjType)
             {
                 case InteractableObjType.Cat:
                     interactableObject.AddComponent<Cat>();
+                    var cat = interactableObject.GetComponent<Cat>();
+                    cat.positiveOutcome = positiveOutcomes[(int) interactable.InteractableObjType];
+                    cat.negativeOutcome = negativeOutcomes[(int) interactable.InteractableObjType];
                     break;
                 case InteractableObjType.Closet:
                     interactableObject.AddComponent<Closet>();
+                    var closet = interactableObject.GetComponent<Closet>();
+                    closet.positiveOutcome = positiveOutcomes[(int) interactable.InteractableObjType];
+                    closet.negativeOutcome = negativeOutcomes[(int) interactable.InteractableObjType];
                     break;
                 case InteractableObjType.Trash:
                     interactableObject.AddComponent<TrashCollector>();
+                    var trashCollector = interactableObject.GetComponent<TrashCollector>();
+                    trashCollector.positiveOutcome = positiveOutcomes[(int) interactable.InteractableObjType];
+                    trashCollector.negativeOutcome = negativeOutcomes[(int) interactable.InteractableObjType];
                     break;
                 case InteractableObjType.Grandma:
                     interactableObject.AddComponent<Grandma>();
+                    
+                    var grandma = interactableObject.GetComponent<Grandma>();
+                    grandma.positiveOutcome = positiveOutcomes[(int) interactable.InteractableObjType];
+                    grandma.negativeOutcome = negativeOutcomes[(int) interactable.InteractableObjType];
                     break;
             }
         }

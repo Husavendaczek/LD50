@@ -10,6 +10,9 @@ namespace Interaction
 {
     public class Grandma : MonoBehaviour, IInteractable
     {
+        public Sprite positiveOutcome;
+        public Sprite negativeOutcome;
+        
         private IMediator _mediator;
         
         private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple };
@@ -59,6 +62,9 @@ namespace Interaction
                 {
                     _mediator.RemoveAndHideInventory(item);
                     _mediator.SetScore(30);
+                    
+                    gameObject.GetComponent<SpriteRenderer>().sprite = positiveOutcome;
+                    
                     _mediator.ShowEnd();
                     return;
                 }
@@ -75,6 +81,8 @@ namespace Interaction
             {
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "What should I do with that?"});
                 _mediator.SetScore(-2);
+                
+                gameObject.GetComponent<SpriteRenderer>().sprite = negativeOutcome;
             }
         }
     }

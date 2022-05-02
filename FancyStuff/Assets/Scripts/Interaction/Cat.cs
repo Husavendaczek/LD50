@@ -10,6 +10,8 @@ namespace Interaction
 {
     public class Cat : MonoBehaviour, IInteractable
     {
+        public Sprite positiveOutcome;
+        public Sprite negativeOutcome;
         private IMediator _mediator;
         
         private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.CatFood };
@@ -57,11 +59,15 @@ namespace Interaction
             {
                 _mediator.RemoveAndHideInventory(item);
                 _mediator.SetScore(5);
+
+                gameObject.GetComponent<SpriteRenderer>().sprite = positiveOutcome;
             }
             else if (_interactableBadType.Contains(item.ItemType))
             {
                 _mediator.ShowAchievement(AchievementType.CatDresser);
                 _mediator.SetScore(-5);
+                
+                gameObject.GetComponent<SpriteRenderer>().sprite = negativeOutcome;
             }
             else if (item.ItemType == ItemType.Knife)
             {
