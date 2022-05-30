@@ -14,7 +14,10 @@ namespace Interaction
         public Sprite negativeOutcome;
         
         private IMediator _mediator;
-        
+
+        private int _givenAmount = 0;
+        private const int NeededAmount = 4;
+
         private readonly List<ItemType> _interactableType = new List<ItemType> { ItemType.AppleSlice, ItemType.Apple };
         private readonly List<ItemType> _interactableBadType = new List<ItemType> { ItemType.Knife };
 
@@ -60,12 +63,22 @@ namespace Interaction
             {
                 if (item.ItemType == ItemType.AppleSlice)
                 {
+                    _givenAmount += 1;
+                    _mediator.SetScore(3);
+                    if (_givenAmount != NeededAmount)
+                    {
+                        _mediator.RemoveItemFromInventory(item.ItemType);
+                        _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "I need more apples"});
+                        return;
+                    }
+                    
                     _mediator.RemoveAndHideInventory(item);
                     _mediator.SetScore(30);
                     
                     gameObject.GetComponent<SpriteRenderer>().sprite = positiveOutcome;
                     
-                    _mediator.ShowEnd();
+                    _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "Thank you!"});
+                    
                     return;
                 }
                 _mediator.ShowSimpleMessage(new SimpleMessage {MessageText = "You should slice them!"});

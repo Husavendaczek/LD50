@@ -39,15 +39,14 @@ namespace Interaction
                 CreateDragUIItem(targetType);
             }
 
-            var origintype = _firstSelectedItem.ItemType;
+            var originType = _firstSelectedItem.ItemType;
 
-            if (InteractingWith(origintype, targetType, ItemType.Apple, ItemType.Knife))
+            if (InteractingWith(originType, targetType, ItemType.Apple, ItemType.Knife))
             {
                 DeleteFirst();
                 
                 Mediator.CreateItemInWorld(ItemType.AppleSlice);
-                Mediator.RemoveItemFromInventory(origintype);
-                Mediator.RemoveItemFromInventory(targetType);
+                Mediator.RemoveItemFromInventory(ItemType.Apple);
             }
         }
         
